@@ -33,7 +33,7 @@ const GetStartedButton: React.FC<GetStartedButtonProps> = ({ deviceType, classNa
 export const WhatWeDoSection = () => {
 
    return (
-      <ScrollSpySection route={routeConstants.whatWeDo} className="container pb-40 pt-28">
+      <ScrollSpySection route={routeConstants.whatWeDo} className="container pb-20 pt-28 lg:pb-40">
          <Card className="bg-[#F5650A] rounded-[40px]">
             <CardContent className="flex flex-col p-8 gap-x-20 lg:flex-row lg:items-center">
                <div className="flex flex-col max-w-xl max-lg:mx-auto max-lg:text-center lg:max-w-xsI">

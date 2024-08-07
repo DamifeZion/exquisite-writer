@@ -1,24 +1,40 @@
 import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
 import Typography from "@/components/ui/typography"
 import { routeConstants } from "@/constants/route-const"
+import { cn } from "@/lib/utils"
+import { HTMLAttributes } from "react"
 
+type SectionTItleProps = HTMLAttributes<HTMLSpanElement> & {
+   deviceType: "mobile" | "desktop";
+}
+
+const SectionTItle: React.FC<SectionTItleProps> = ({ deviceType, className, ...props }) => {
+   return (
+      <span className={cn("px-6 py-5 rounded-full w-fit bg-primary/10 text-primary", {
+         "lg:hidden": deviceType === "mobile",
+         "max-lg:hidden": deviceType === "desktop"
+      }, className)} {...props}>
+         About Us
+      </span>
+   )
+}
 
 export const AboutUsSection = () => {
    return (
-      <ScrollSpySection route={routeConstants.about} className="container relative py-28">
+      <ScrollSpySection route={routeConstants.about} className="container relative py-20 lg:py-28">
          <img
             src="/grid-bg.svg"
             className="absolute top-0 right-0 object-fill -z-10 size-full"
          />
 
          <div className="relative z-10">
-            <div className="grid grid-cols-2 gap-6">
-               <img src="/about-us-img.svg" />
+            <div className="grid gap-6 lg:grid-cols-2">
+               <SectionTItle deviceType="mobile" />
+
+               <img src="/about-us-img.svg" className="max-lg:mx-au" />
 
                <div className="*:mt-10 *:text-md *:font-normal first:*:mt-0 ">
-                  <span className="px-6 py-5 rounded-full bg-primary/10 text-primary">
-                     About Us
-                  </span>
+                  <SectionTItle deviceType="desktop" />
 
                   <Typography>
                      Exquisite Writers is a vibrant and inclusive community for writers of all levels. Established in [Year],
