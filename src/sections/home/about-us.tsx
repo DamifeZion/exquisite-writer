@@ -31,7 +31,7 @@ export const AboutUsSection = () => {
             <div className="grid gap-6 lg:grid-cols-2">
                <SectionTItle deviceType="mobile" />
 
-               <img src="/about-us-img.svg" className="max-lg:mx-au" />
+               <img src="/about-us-img.svg" className="max-lg:mx-au" /> 
 
                <div className="*:mt-10 *:text-md *:font-normal first:*:mt-0 ">
                   <SectionTItle deviceType="desktop" />
