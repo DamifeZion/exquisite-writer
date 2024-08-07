@@ -49,7 +49,7 @@ export const HeroSection = () => [
                </div>
             </div>
 
-            <img src="/public/hero.svg" className="w-full h-auto max-md:max-w-sm max-md:mt-10" />
+            <img src="/hero.svg" className="w-full h-auto max-md:max-w-sm max-md:mt-10" />
          </div>
 
          {/* NOTE: Clients Tablet Screens and Above */}
