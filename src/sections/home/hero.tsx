@@ -7,7 +7,7 @@ export const HeroSection = () => [
 
    <ScrollSpySection route={routeConstants.home} className="relative pt-20 pb-10 lg:pt-28">
       <img
-         src="/public/hero-bg.svg"
+         src="/hero-bg.svg"
          className="absolute top-0 object-cover -z-10 size-full"
       />
 
