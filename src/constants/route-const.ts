@@ -1,9 +1,9 @@
 export const routeConstants = {
-   home: "/home",
-   whatWeDo: "/home#what-we-do",
-   whyUs: "/home#why-us",
-   about: "/home#about",
-   pricing: "/home#pricing",
+   home: "/",
+   whatWeDo: "/#what-we-do",
+   whyUs: "/#why-us",
+   about: "/#about",
+   pricing: "/#pricing",
    blogs: "/blogs",
    getStarted: "/get-started",
 };
