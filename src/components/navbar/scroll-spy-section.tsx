@@ -15,7 +15,7 @@ export const ScrollSpySection: React.FC<ScrollSpySectionProps> = ({ children, cl
    const dispatch = useDispatch();
 
    const { ref, inView } = useInView({
-      threshold: 0.4,
+      threshold: 0.6,
    })
 
    useEffect(() => {
