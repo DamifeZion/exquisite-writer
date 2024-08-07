@@ -1,4 +1,5 @@
 import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Typography from "@/components/ui/typography"
 import { routeConstants } from "@/constants/route-const"
 import { cn } from "@/lib/utils"
@@ -31,7 +32,7 @@ export const AboutUsSection = () => {
             <div className="grid gap-6 lg:grid-cols-2">
                <SectionTItle deviceType="mobile" />
 
-               <img src="/about-us-img.svg" className="max-lg:mx-au" /> 
+               <img src="/about-us-img.svg" className="max-lg:max-h-[400px]" />
 
                <div className="*:mt-10 *:text-md *:font-normal first:*:mt-0 ">
                   <SectionTItle deviceType="desktop" />
@@ -49,6 +50,38 @@ export const AboutUsSection = () => {
                   </Typography>
                </div>
             </div>
+
+            <Card className="relative max-w-[550px] bg-[#00617D] border-none rounded-3xl max-lg:mt-16 max-lg:mx-auto lg:-top-8 lg:-translate-x-1/2 lg:left-1/2">
+               <CardHeader className="py-8">
+                  <CardTitle className="text-center">
+                     <Typography variant="h1" className="font-medium border-none text-primary-foreground">
+                        Our Vision and Mission Statement
+                     </Typography>
+                  </CardTitle>
+               </CardHeader>
+
+               <CardContent className="pt-0 space-y-8 pb-14">
+                  <div className="flex text-primary-foreground">
+                     <Typography className="font-semibold min-w-[100px]">
+                        Vision:
+                     </Typography>
+
+                     <Typography affects="medium" className="font-normal">
+                        To empower writers by providing high-quality resources, expert guidance, and a vibrant community that nurtures creativity and growth.
+                     </Typography>
+                  </div>
+
+                  <div className="flex text-primary-foreground">
+                     <Typography className="font-semibold min-w-[100px]">
+                        Mission:
+                     </Typography>
+
+                     <Typography affects="medium" className="font-normal">
+                        To empower writers by providing high-quality resources, expert guidance, and a vibrant community that nurtures creativity and growth.
+                     </Typography>
+                  </div>
+               </CardContent>
+            </Card>
          </div>
       </ScrollSpySection>
    )
