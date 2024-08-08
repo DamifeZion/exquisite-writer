@@ -25,7 +25,7 @@ export const Navbar = () => {
    const { desktop, openSheet, setOpenSheet } = useNavbar()
 
    return (
-      <nav className="sticky top-0 left-0 z-20 bg-background/60 backdrop-blur-md">
+      <nav className="sticky top-0 left-0 z-30 bg-background/60 backdrop-blur-md">
          <div className="container flex items-center justify-between h-16">
             <Logo />
 

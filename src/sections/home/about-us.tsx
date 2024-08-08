@@ -24,9 +24,10 @@ export const AboutUsSection = () => {
    return (
       <ScrollSpySection
          route={routeConstants.about}
-         className="container relative py-20 lg:py-28"
+         className="container relative py-20 lg:pt-28 lg:pb-10"
       >
          <img
+            loading="lazy"
             src="/grid-bg.svg"
             className="absolute top-0 right-0 object-fill -z-10 size-full"
          />
@@ -35,7 +36,7 @@ export const AboutUsSection = () => {
             <div className="grid gap-6 lg:grid-cols-2">
                <SectionTItle deviceType="mobile" />
 
-               <img src="/about-us-img.svg" className="max-lg:max-h-[400px]" />
+               <img src="/about-us-img.svg" loading="lazy" className="max-lg:max-h-[400px]" />
 
                <div className="*:mt-10 *:text-md *:font-normal first:*:mt-0 ">
                   <SectionTItle deviceType="desktop" />
@@ -59,14 +60,14 @@ export const AboutUsSection = () => {
             >
                <CardHeader className="py-8">
                   <CardTitle className="text-center">
-                     <Typography variant="h1" className="font-medium border-none text-primary-foreground">
+                     <Typography variant="h1" className="font-medium border-none text-primary-foreground max-[400px]:text-3xl">
                         Our Vision and Mission Statement
                      </Typography>
                   </CardTitle>
                </CardHeader>
 
                <CardContent className="pt-0 space-y-8 pb-14">
-                  <div className="flex text-primary-foreground">
+                  <div className="flex text-primary-foreground max-[380px]:flex-col max-[380px]:gap-3">
                      <Typography className="font-semibold min-w-[100px]">
                         Vision:
                      </Typography>
@@ -76,7 +77,7 @@ export const AboutUsSection = () => {
                      </Typography>
                   </div>
 
-                  <div className="flex text-primary-foreground">
+                  <div className="flex text-primary-foreground  max-[380px]:flex-col max-[380px]:gap-3">
                      <Typography className="font-semibold min-w-[100px]">
                         Mission:
                      </Typography>

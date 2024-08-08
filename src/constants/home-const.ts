@@ -3,6 +3,7 @@ import { MdPlaylistPlay } from "react-icons/md";
 import { MdScreenshotMonitor } from "react-icons/md";
 import { WhatWeDOCardProps } from "@/components/home/what-we-do-card";
 import { Edit } from "lucide-react";
+import { TeamCardProps } from "@/components/home/team-card";
 
 export const WHAT_WE_DO: Array<WhatWeDOCardProps> = [
    {
@@ -32,5 +33,40 @@ export const WHAT_WE_DO: Array<WhatWeDOCardProps> = [
       description:
          "Connect with other writers through forums, events, and collaborative projects.",
       iconContainerStyle: "bg-[#F9B286]",
+   },
+];
+
+export const THE_TEAM: Array<TeamCardProps> = [
+   {
+      src: "/team-1.svg",
+      name: "Adegboye Opeyemi",
+      position: "Product Designer",
+      email: "exquisite@gmail.com",
+      twitterLink: "https://twitter.com/i/flow/signup?lang=en",
+      linkedInLink: "https://www.linkedin.com/login",
+   },
+   {
+      src: "/team-1.svg",
+      name: "Adegboye Opeyemi",
+      position: "Product Designer",
+      email: "exquisite@gmail.com",
+      twitterLink: "https://twitter.com/i/flow/signup?lang=en",
+      linkedInLink: "https://www.linkedin.com/login",
+   },
+   {
+      src: "/team-1.svg",
+      name: "Adegboye Opeyemi",
+      position: "Product Designer",
+      email: "exquisite@gmail.com",
+      twitterLink: "https://twitter.com/i/flow/signup?lang=en",
+      linkedInLink: "https://www.linkedin.com/login",
+   },
+   {
+      src: "/team-1.svg",
+      name: "Adegboye Opeyemi",
+      position: "Product Designer",
+      email: "exquisite@gmail.com",
+      twitterLink: "https://twitter.com/i/flow/signup?lang=en",
+      linkedInLink: "https://www.linkedin.com/login",
    },
 ];

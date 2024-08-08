@@ -7,6 +7,7 @@ export const HeroSection = () => [
 
    <ScrollSpySection route={routeConstants.home} className="relative pt-20 pb-10 lg:pt-28">
       <img
+         loading="lazy"
          src="/hero-bg.svg"
          className="absolute top-0 object-cover -z-10 size-full"
       />
@@ -42,10 +43,10 @@ export const HeroSection = () => [
                      <span className="text-xl font-medium">10+</span> Clients
                   </Typography>
 
-                  <img src="/client-1.svg" />
-                  <img src="/client-2.svg" />
-                  <img src="/client-3.svg" />
-                  <img src="/client-4.svg" />
+                  <img loading="lazy" src="/client-1.svg" />
+                  <img loading="lazy" src="/client-2.svg" />
+                  <img loading="lazy" src="/client-3.svg" />
+                  <img loading="lazy" src="/client-4.svg" />
                </div>
             </div>
 
@@ -59,10 +60,10 @@ export const HeroSection = () => [
                <span className="text-xl font-medium">10+</span> Clients
             </Typography>
 
-            <img src="/client-1.svg" />
-            <img src="/client-2.svg" />
-            <img src="/client-3.svg" />
-            <img src="/client-4.svg" />
+            <img loading="lazy" src="/client-1.svg" />
+            <img loading="lazy" src="/client-2.svg" />
+            <img loading="lazy" src="/client-3.svg" />
+            <img loading="lazy" src="/client-4.svg" />
          </div>
       </div>
    </ScrollSpySection >
