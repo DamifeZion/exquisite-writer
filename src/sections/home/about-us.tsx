@@ -22,7 +22,10 @@ const SectionTItle: React.FC<SectionTItleProps> = ({ deviceType, className, ...p
 
 export const AboutUsSection = () => {
    return (
-      <ScrollSpySection route={routeConstants.about} className="container relative py-20 lg:py-28">
+      <ScrollSpySection
+         route={routeConstants.about}
+         className="container relative py-20 lg:py-28"
+      >
          <img
             src="/grid-bg.svg"
             className="absolute top-0 right-0 object-fill -z-10 size-full"
@@ -51,7 +54,9 @@ export const AboutUsSection = () => {
                </div>
             </div>
 
-            <Card className="relative max-w-[550px] bg-[#00617D] border-none rounded-3xl max-lg:mt-16 max-lg:mx-auto lg:-top-8 lg:-translate-x-1/2 lg:left-1/2">
+            <Card
+               className="relative transition-all ease-linear duration-150 max-w-[550px] bg-[#00617D] border-none rounded-3xl mx-auto max-lg:mt-16 lg:top-16 xl:-top-8"
+            >
                <CardHeader className="py-8">
                   <CardTitle className="text-center">
                      <Typography variant="h1" className="font-medium border-none text-primary-foreground">
