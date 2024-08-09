@@ -37,11 +37,11 @@ export const WhatWeDoSection = () => {
          <Card className="bg-[#F5650A] rounded-[20px] pt-10 max-lg:pb-20 lg:rounded-[40px]">
             <CardContent className="flex flex-col p-4 gap-x-20 md:p-8 lg:flex-row lg:items-center">
                <div className="flex flex-col max-w-xl max-lg:mx-auto max-lg:text-center lg:max-w-xsI">
-                  <Badge className=" w-fit px-5 py-4 max-lg:mx-auto text-[#F5650A] text-md bg-primary-foreground hover:bg-primary-foreground">
+                  <Badge className=" w-fit px-5 py-2 max-lg:mx-auto text-[#F5650A] text-md bg-primary-foreground md:py-4 hover:bg-primary-foreground">
                      What We Do
                   </Badge>
 
-                  <Typography className="mt-5 font-medium text-primary-foreground ">
+                  <Typography variant="p" className="max-w-[550px] mt-5 text-primary-foreground">
                      At Exquisite Writers, we offer a comprehensive suite of services designed to support and elevate your writing journey.
                   </Typography>
 

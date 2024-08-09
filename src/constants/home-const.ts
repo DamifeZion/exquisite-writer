@@ -6,6 +6,7 @@ import { Edit } from "lucide-react";
 import { TeamCardProps } from "@/components/home/team-card";
 import { TestimonialCardProps } from "@/components/home/testimonial-card";
 import { FAQProps } from "@/sections/home/Faq";
+import { CommitmentCardProps } from "@/components/home/our-commitment-card";
 
 export const WHAT_WE_DO: Array<WhatWeDOCardProps> = [
    {
@@ -151,5 +152,28 @@ export const FAQ_DATA: Array<FAQProps> = [
       title: "How do I get started?",
       description:
          "soiwoi epmeg 434jf wmcoimw 404j0v w0imwc03m v33vm03vm w03vmv30i",
+   },
+];
+
+export const OUR_COMMITMENTS: Array<CommitmentCardProps> = [
+   {
+      title: "Ensuring Originality",
+      description:
+         " Advanced plagiarism detection guarantees 100% original content, complemented by thorough checks for grammar, spelling, and readability.",
+   },
+   {
+      title: "Easily Request Revisions",
+      description:
+         "Requesting revisions is a breeze with a click. Two free revisions are offered within a specified window after delivery.",
+   },
+   {
+      title: "Support for All Team Sizes",
+      description:
+         "From solo marketers to large teams or organizations, we provide seamless support to meet your needs.",
+   },
+   {
+      title: "Content Safety and Confidentiality",
+      description:
+         " We prioritize your content's security with stringent measures. For added peace of mind, your ideas and content remain exclusively yours.",
    },
 ];

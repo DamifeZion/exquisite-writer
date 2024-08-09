@@ -11,7 +11,7 @@ type SectionTItleProps = HTMLAttributes<HTMLSpanElement> & {
 
 const SectionTItle: React.FC<SectionTItleProps> = ({ deviceType, className, ...props }) => {
    return (
-      <span className={cn("px-6 py-5 rounded-full w-fit bg-primary/10 text-primary", {
+      <span className={cn("px-6 py-3 rounded-full w-fit bg-primary/10 text-primary md:py-5", {
          "lg:hidden": deviceType === "mobile",
          "max-lg:hidden": deviceType === "desktop"
       }, className)} {...props}>
@@ -24,7 +24,7 @@ export const AboutUsSection = () => {
    return (
       <ScrollSpySection
          route={routeConstants.about}
-         className="container relative py-20 lg:pt-28 lg:pb-10"
+         className="container relative !py-20 lg:pt-28 lg:pb-10"
       >
          <img
             loading="lazy"
