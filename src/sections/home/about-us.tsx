@@ -24,7 +24,7 @@ export const AboutUsSection = () => {
    return (
       <ScrollSpySection
          route={routeConstants.about}
-         className="container relative !py-20 lg:pt-28 lg:pb-10"
+         className="container relative !py-20 lg:!pt-28 lg:!pb-10"
       >
          <img
             loading="lazy"
