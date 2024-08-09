@@ -21,10 +21,11 @@ export const MenuList: React.FC<MenuListProps> = ({ onClick }) => {
             <li key={index} className="w-full">
                <Link
                   to={data.href}
-                  variant={activeMenu === data.href ? "link" : 'ghost'}
+                  variant={activeMenu === data.href ? "link" : data.button ? "outline" : "ghost"}
                   onClick={handleClick}
                   className={cn("justify-start w-full font-medium max-lg:text-lg max-lg:py-6", {
-                     "font-semibold": activeMenu === data.href
+                     "font-semibold": activeMenu === data.href,
+                     "text-primary border-primary bg-transparent hover:bg-primary hover:text-primary-foreground !no-underline": data.button
                   })}
                >
                   {data.label}

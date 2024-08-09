@@ -26,10 +26,10 @@ export const ScrollSpySection: React.FC<ScrollSpySectionProps> = ({ children, cl
 
 
    return (
-      <section className={cn("", className)} ref={ref} {...props}>
-         <Element name={route}>
+      <section ref={ref} {...props}>
+         <Element name={route} className={cn(className)}>
             {children}
          </Element>
-      </section>
+      </section >
    )
 }

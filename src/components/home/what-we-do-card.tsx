@@ -15,17 +15,19 @@ export type WhatWeDOCardProps = {
 export const WhatWeDoCard: React.FC<WhatWeDOCardProps> = ({ description, icon: Icon, iconContainerStyle, title }) => {
 
    return (
-      <Card className="flex flex-col rounded-3xl">
-         <CardContent className="grid gap-4 p-4">
-            <div className={cn("w-fit p-2 rounded-full border text-primary-foreground", iconContainerStyle)}>
-               <Icon className="size-8" />
+      <Card className="flex flex-col rounded-xl md:rounded-3xl">
+         <CardContent className="grid p-4">
+            <div className="items-center max-lg:flex max-lg:gap-2">
+               <div className={cn("size-fit p-2 rounded-full border text-primary-foreground", iconContainerStyle)}>
+                  <Icon className="size-5 lg:size-8" />
+               </div>
+
+               <CardTitle className="lg:mt-4 max-sm:text-xl">
+                  {title}
+               </CardTitle>
             </div>
 
-            <CardTitle>
-               {title}
-            </CardTitle>
-
-            <CardDescription>
+            <CardDescription className="mt-3">
                {description}
             </CardDescription>
          </CardContent>

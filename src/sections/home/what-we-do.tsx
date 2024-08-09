@@ -17,7 +17,7 @@ const GetStartedButton: React.FC<GetStartedButtonProps> = ({ deviceType, classNa
    return (
       <Button
          className={cn(
-            "w-fit px-10 py-6 font-light bg-black border rounded-sm hover:bg-black/85 border-primary-foreground",
+            "w-fit px-10 py-6 font-light bg-black border rounded-sm transition-all duration-150 ease-linear border-primary-foreground hover:bg-black hover:scale-105",
             {
                "lg:hidden mt": deviceType === "mobile",
                "max-lg:hidden mt-16": deviceType === "desktop",
@@ -33,9 +33,9 @@ const GetStartedButton: React.FC<GetStartedButtonProps> = ({ deviceType, classNa
 export const WhatWeDoSection = () => {
 
    return (
-      <ScrollSpySection route={routeConstants.whatWeDo} className="container pb-20 pt-28 lg:pb-40">
-         <Card className="bg-[#F5650A] rounded-[40px]">
-            <CardContent className="flex flex-col p-8 gap-x-20 lg:flex-row lg:items-center">
+      <ScrollSpySection route={routeConstants.whatWeDo} className="pb-20 pt-28 lg:container lg:pb-40">
+         <Card className="bg-[#F5650A] rounded-[20px] pt-10 max-lg:pb-20 lg:rounded-[40px]">
+            <CardContent className="flex flex-col p-4 gap-x-20 md:p-8 lg:flex-row lg:items-center">
                <div className="flex flex-col max-w-xl max-lg:mx-auto max-lg:text-center lg:max-w-xsI">
                   <Badge className=" w-fit px-5 py-4 max-lg:mx-auto text-[#F5650A] text-md bg-primary-foreground hover:bg-primary-foreground">
                      What We Do
@@ -57,7 +57,7 @@ export const WhatWeDoSection = () => {
                   ))}
                </div>
 
-               <GetStartedButton deviceType="mobile" className="mt- max-lg:mx-auto max-lg:mt-14" />
+               <GetStartedButton deviceType="mobile" className="max-lg:mx-auto max-lg:mt-14" />
             </CardContent>
          </Card>
       </ScrollSpySection>

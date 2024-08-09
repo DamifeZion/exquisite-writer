@@ -58,9 +58,9 @@ export const AboutUsSection = () => {
             <Card
                className="relative transition-all ease-linear duration-150 max-w-[550px] bg-[#00617D] border-none rounded-3xl mx-auto max-lg:mt-16 lg:top-16 xl:-top-8"
             >
-               <CardHeader className="py-8">
+               <CardHeader className="py-8 pb-4">
                   <CardTitle className="text-center">
-                     <Typography variant="h1" className="font-medium border-none text-primary-foreground max-[400px]:text-3xl">
+                     <Typography variant="h1" className="font-medium border-none text-primary-foreground max-[400px]:text-[24px]">
                         Our Vision and Mission Statement
                      </Typography>
                   </CardTitle>
@@ -68,17 +68,17 @@ export const AboutUsSection = () => {
 
                <CardContent className="pt-0 space-y-8 pb-14">
                   <div className="flex text-primary-foreground max-[380px]:flex-col max-[380px]:gap-3">
-                     <Typography className="font-semibold min-w-[100px]">
+                     <Typography className="font-semibold min-w-[100px] text-md">
                         Vision:
                      </Typography>
 
-                     <Typography affects="medium" className="font-normal">
+                     <Typography affects="medium" className="font-normal max-[400px]:text-md">
                         To empower writers by providing high-quality resources, expert guidance, and a vibrant community that nurtures creativity and growth.
                      </Typography>
                   </div>
 
                   <div className="flex text-primary-foreground  max-[380px]:flex-col max-[380px]:gap-3">
-                     <Typography className="font-semibold min-w-[100px]">
+                     <Typography className="font-semibold min-w-[100px] max-[400px]:text-md">
                         Mission:
                      </Typography>
 
