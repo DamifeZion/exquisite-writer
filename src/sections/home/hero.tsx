@@ -27,7 +27,7 @@ export const HeroSection = () => [
                      />
                   </div>
 
-                  <Typography variant="h1" className="text-4xl leading-[1.18] min-[480px]:text-[50px] min-[480px]:leading-[1.15] md:text-5xl md:leading-tight lg:text-[72px] lg:leading-[86px]">
+                  <Typography variant="h1" className="text-4xl leading-[1.18] min-[400px]:text-[46px] min-[480px]:text-[50px] min-[480px]:leading-[1.15] md:text-5xl md:leading-tight lg:text-[72px] lg:leading-[86px]">
                      Transform Your Ideas into Masterpieces
                   </Typography>
 
