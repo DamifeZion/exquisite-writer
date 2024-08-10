@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Element } from "react-scroll"
 
 type ScrollSpySectionProps = Omit<React.HTMLProps<HTMLDivElement>, 'ref'> & {
-   route: string
+   route?: string
 }
 
 export const ScrollSpySection: React.FC<ScrollSpySectionProps> = ({ children, className, route, ...props }) => {
@@ -19,7 +19,7 @@ export const ScrollSpySection: React.FC<ScrollSpySectionProps> = ({ children, cl
    })
 
    useEffect(() => {
-      if (inView) {
+      if (inView && route) {
          dispatch(setActiveMenu(route))
       }
    }, [inView, route, dispatch, activeMenu])
@@ -27,7 +27,7 @@ export const ScrollSpySection: React.FC<ScrollSpySectionProps> = ({ children, cl
 
    return (
       <section ref={ref} {...props}>
-         <Element name={route} className={cn(className)}>
+         <Element name={route ? route : ''} className={cn(className)}>
             {children}
          </Element>
       </section >

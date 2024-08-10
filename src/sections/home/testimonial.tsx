@@ -5,13 +5,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import Typography from "@/components/ui/typography"
 import { TESTIMONIALS } from "@/constants/home-const"
-import { routeConstants } from "@/constants/route-const"
 import AutoPlay from "embla-carousel-autoplay"
 
 export const Testimonial = () => {
 
    return (
-      <ScrollSpySection route={routeConstants.about} className="relative py-20 lg:py-28">
+      <ScrollSpySection className="relative py-20 lg:py-28">
          <img
             src="/grid-bg.svg"
             className="absolute top-0 left-0 size-full"

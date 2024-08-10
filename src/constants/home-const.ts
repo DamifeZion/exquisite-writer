@@ -5,8 +5,9 @@ import { WhatWeDOCardProps } from "@/components/home/what-we-do-card";
 import { Edit } from "lucide-react";
 import { TeamCardProps } from "@/components/home/team-card";
 import { TestimonialCardProps } from "@/components/home/testimonial-card";
-import { FAQProps } from "@/sections/home/Faq";
+import { FAQProps } from "@/sections/home/faq";
 import { CommitmentCardProps } from "@/components/home/our-commitment-card";
+import { PricingCardProps } from "@/components/home/pricing-card";
 
 export const WHAT_WE_DO: Array<WhatWeDOCardProps> = [
    {
@@ -175,5 +176,68 @@ export const OUR_COMMITMENTS: Array<CommitmentCardProps> = [
       title: "Content Safety and Confidentiality",
       description:
          " We prioritize your content's security with stringent measures. For added peace of mind, your ideas and content remain exclusively yours.",
+   },
+];
+
+export const CONTENT_TYPES: Array<string> = [
+   "blog",
+   "articles",
+   "website content",
+   "product descriptions",
+   "white papers",
+   "ebooks",
+   "case studies",
+   "press releases",
+];
+
+export const WORD_COUNT: Array<string> = [
+   "500 - 1000",
+   "1001 - 2000",
+   "2001 - 3000",
+   "3001 - 5000",
+   "5001 - 7000",
+];
+
+export const PLANS: Array<PricingCardProps> = [
+   {
+      planName: "Starter",
+      amount: 38,
+      features: [
+         "Content proofreading",
+         "Writers with 0-2 years experience",
+         "Ideal for SEO Content",
+         "Preferred for Blogs and Product Descriptions",
+         "Two rounds of revisions",
+         "Limited research",
+         "Turnaround time of 5 business days",
+      ],
+   },
+
+   {
+      planName: "Professional",
+      amount: 48,
+      features: [
+         "Content proofreading",
+         "Writers with 0-2 years experience",
+         "Ideal for SEO Content",
+         "Preferred for Blogs and Product Descriptions",
+         "Two rounds of revisions",
+         "Limited research",
+         "Turnaround time of 5 business days",
+      ],
+   },
+
+   {
+      planName: "Elite",
+      amount: 58,
+      features: [
+         "Content proofreading",
+         "Writers with 0-2 years experience",
+         "Ideal for SEO Content",
+         "Preferred for Blogs and Product Descriptions",
+         "Two rounds of revisions",
+         "Limited research",
+         "Turnaround time of 5 business days",
+      ],
    },
 ];

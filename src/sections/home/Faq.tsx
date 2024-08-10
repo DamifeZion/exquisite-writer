@@ -3,7 +3,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button"
 import Typography from "@/components/ui/typography"
 import { FAQ_DATA } from "@/constants/home-const"
-import { routeConstants } from "@/constants/route-const"
 
 export type FAQProps = {
    title: string;
@@ -13,7 +12,7 @@ export type FAQProps = {
 export const Faq = () => {
 
    return (
-      <ScrollSpySection route={routeConstants.pricing} className="container flex gap-20 !pb-40 !pt-28 max-md:flex-col">
+      <ScrollSpySection className="container flex gap-20 !pb-40 !pt-28 max-md:flex-col">
          <div className="md:max-w-xs lg:max-w-md">
             <Typography variant="h1">
                FAQs
