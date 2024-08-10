@@ -5,6 +5,7 @@ export const routeConstants = {
    about: "/#about",
    pricing: "/#pricing",
    faq: "/#faq",
-   blogs: "/blogs",
    getStarted: "?get-started=true",
+   blogs: "/blogs",
+   blogDetails: "/blogs/:id",
 };
