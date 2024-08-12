@@ -15,7 +15,6 @@ export const BlogLists = () => {
                />
             ))}
          </div>
-
          <img
             src="/line-curve.svg"
             className="absolute left-0 w-full h-auto bottom-36 -z-10 opacity-90 [transform:scaleY(-1)]"
