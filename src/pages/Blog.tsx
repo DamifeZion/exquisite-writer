@@ -1,6 +1,6 @@
 import { BlogHero } from "@/sections/blog/blog-hero"
 import { BlogLists } from "@/sections/blog/blog-list"
-import { Faq } from "@/sections/home/faq"
+import { FAQ } from "@/sections/home/FAQ"
 import { OurCommitment } from "@/sections/home/our-commitment"
 
 
@@ -11,7 +11,7 @@ const Blog = () => {
          <BlogHero />
          <BlogLists />
          <OurCommitment />
-         <Faq />
+         <FAQ />
       </div>
    )
 
