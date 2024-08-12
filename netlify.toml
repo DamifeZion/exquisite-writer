@@ -4,3 +4,4 @@
 
 [build.environment]
    NODE_ENV = "production"
+   PATH = "/opt/build/repo/node_modules/.bin:$PATH"
