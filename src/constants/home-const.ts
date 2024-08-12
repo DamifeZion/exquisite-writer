@@ -5,7 +5,7 @@ import { WhatWeDOCardProps } from "@/components/home/what-we-do-card";
 import { Edit } from "lucide-react";
 import { TeamCardProps } from "@/components/home/team-card";
 import { TestimonialCardProps } from "@/components/home/testimonial-card";
-import { FAQProps } from "@/sections/home/faq";
+import { FAQProps } from "@/sections/home/FAQ";
 import { CommitmentCardProps } from "@/components/home/our-commitment-card";
 import { PricingCardProps } from "@/components/home/pricing-card";
 

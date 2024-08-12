@@ -9,7 +9,7 @@ export type FAQProps = {
    description: string;
 }
 
-export const Faq = () => {
+export const FAQ = () => {
 
    return (
       <ScrollSpySection className="container flex gap-20 !pb-40 !pt-28 max-md:flex-col">
