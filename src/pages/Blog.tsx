@@ -1,6 +1,6 @@
 import { BlogHero } from "@/sections/blog/blog-hero"
 import { BlogLists } from "@/sections/blog/blog-list"
-import { FAQ } from "@/sections/home/FAQ"
+import { FAQ } from "@/sections/home/faq"
 import { OurCommitment } from "@/sections/home/our-commitment"
 
 
