@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button"
 import Typography from "@/components/ui/typography"
 import { FAQ_DATA } from "@/constants/home-const"
 
-export type FaqProps = {
+export type FrequentlyAskedQuestionsProps = {
    title: string;
    description: string;
 }
 
-export const Faq = () => {
+export const FrequentlyAskedQuestions = () => {
 
    return (
       <ScrollSpySection className="container flex gap-20 !pb-40 !pt-28 max-md:flex-col">

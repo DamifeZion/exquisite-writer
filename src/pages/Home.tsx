@@ -1,5 +1,5 @@
 import { AboutUsSection } from "@/sections/home/about-us";
-import { Faq } from "@/sections/home/faq";
+import { FrequentlyAskedQuestions } from "@/sections/home/frequent-questions";
 import { HeroSection } from "@/sections/home/hero";
 import { MeeetTheTeem } from "@/sections/home/meet-the-team";
 import { OurCommitment } from "@/sections/home/our-commitment";
@@ -19,7 +19,7 @@ const Home = () => {
          <MeeetTheTeem />
          <Testimonial />
          <Pricing />
-         <Faq />
+         <FrequentlyAskedQuestions />
       </div>
    )
 }
