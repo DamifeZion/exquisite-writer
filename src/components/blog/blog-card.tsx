@@ -12,7 +12,7 @@ export type BlogCardProps = {
    url?: string
 }
 
-export const BlogCard: React.FC<BlogCardProps> = ({ category, url, id }) => {
+export const BlogCard: React.FC<BlogCardProps> = ({ id }) => {
    return (
       <Card className="p-4">
          <CardHeader className="grid gap-4 !p-0">

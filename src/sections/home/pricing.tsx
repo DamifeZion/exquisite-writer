@@ -1,26 +1,26 @@
-import { PricingCard, PricingCardProps } from "@/components/home/pricing-card"
+// import { PricingCard } from "@/components/home/pricing-card"
 import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Typography from "@/components/ui/typography"
-import { CONTENT_TYPES, PLANS, WORD_COUNT } from "@/constants/home-const"
+import { CONTENT_TYPES, WORD_COUNT } from "@/constants/home-const"
 import { routeConstants } from "@/constants/route-const"
 import { useHome } from "@/hooks/use-home"
 import { capitalizeFirstLetters } from "@/lib/capitalize-first-letter"
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 
 export const Pricing = () => {
-   const { form, onSubmit } = useHome()
-   const [subscriptionPlans, setSubscriptionPlans] = useState<Array<Omit<PricingCardProps, 'onClick'>>>(PLANS);
+   const { form,  } = useHome()
+   // const [subscriptionPlans, setSubscriptionPlans] = useState<Array<Omit<PricingCardProps, 'onClick'>>>(PLANS);
 
    // NOTE: How much we charge per thousand words === $10
-   const amountPerThousandWords = 10;
+   // const amountPerThousandWords = 10;
 
-   useEffect(() => {
-      const maxSelectedWords = parseInt(form.getValues('wordCount').split("-")[1]);
+   // useEffect(() => {
+   //    const maxSelectedWords = parseInt(form.getValues('wordCount').split("-")[1]);
 
-      // console.log(maxSelectedWords * am)
-   })
+   //    // console.log(maxSelectedWords * am)
+   // })
 
    return (
       <ScrollSpySection route={routeConstants.pricing} className="py-28 bg-[#f9f9f9]">
@@ -103,7 +103,7 @@ export const Pricing = () => {
                </div>
 
                <div className="container grid gap-4 mt-20 max-md:max-w-3xl sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
-                  {subscriptionPlans.map((data, index) => (
+                  {/* {subscriptionPlans.map((data, index) => (
                      <PricingCard
                         key={index}
                         onClick={() => {
@@ -113,7 +113,7 @@ export const Pricing = () => {
                         }}
                         {...data}
                      />
-                  ))}
+                  ))} */}
                </div>
             </form>
 

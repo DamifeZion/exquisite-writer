@@ -11,6 +11,7 @@ export const BlogLists = () => {
             {Array.from({ length: 15 }).map((_, index) => (
                <BlogCard
                   key={index}
+                  id={String(index)}
                />
             ))}
          </div>

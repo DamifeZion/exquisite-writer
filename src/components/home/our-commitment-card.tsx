@@ -1,4 +1,3 @@
-import { BiCheckShield } from "react-icons/bi";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
 import Typography from "../ui/typography";
 
