@@ -198,6 +198,7 @@ export const WORD_COUNT: Array<string> = [
    "5001 - 7000",
 ];
 
+// NOTE: The amount below is the base amount, but is subject to change based on max words selected in "Use - Home"
 export const PLANS: Array<PricingCardProps> = [
    {
       planName: "Starter",
@@ -215,7 +216,7 @@ export const PLANS: Array<PricingCardProps> = [
 
    {
       planName: "Professional",
-      amount: 48,
+      amount: 88,
       features: [
          "Content proofreading",
          "Writers with 0-2 years experience",
@@ -229,7 +230,7 @@ export const PLANS: Array<PricingCardProps> = [
 
    {
       planName: "Elite",
-      amount: 58,
+      amount: 158,
       features: [
          "Content proofreading",
          "Writers with 0-2 years experience",

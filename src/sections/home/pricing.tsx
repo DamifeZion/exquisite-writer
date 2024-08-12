@@ -1,29 +1,17 @@
-import { PricingCard, PricingCardProps } from "@/components/home/pricing-card"
+import { PricingCard } from "@/components/home/pricing-card"
 import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
-import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Typography from "@/components/ui/typography"
-import { CONTENT_TYPES, PLANS, WORD_COUNT } from "@/constants/home-const"
+import { CONTENT_TYPES, WORD_COUNT } from "@/constants/home-const"
 import { routeConstants } from "@/constants/route-const"
 import { useHome } from "@/hooks/use-home"
 import { capitalizeFirstLetters } from "@/lib/capitalize-first-letter"
-import { useEffect, useState } from "react"
 
 export const Pricing = () => {
-   const { form, onSubmit } = useHome()
+   const { form, subscriptionPlans, onSubmit } = useHome();
 
-   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-   const [subscriptionPlans, setSubscriptionPlans] = useState<Array<Omit<PricingCardProps, 'onClick'>>>(PLANS);
-
-   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-   const amountPerThousandWords = 10;
-
-   useEffect(() => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const maxSelectedWords = parseInt(form.getValues('wordCount').split("-")[1]);
-
-      // console.log(maxSelectedWords * am)
-   })
+   console.log(form.getValues())
 
    return (
       <ScrollSpySection route={routeConstants.pricing} className="py-28 bg-[#f9f9f9]">
@@ -56,7 +44,7 @@ export const Pricing = () => {
                                  value={field.value}
                                  onValueChange={field.onChange}
                               >
-                                 <SelectTrigger className="gap-4 py-2.5 h-fit bg-[hsla(0,0%,92%)] text-muted-foreground" >
+                                 <SelectTrigger className="gap-4 py-2.5 h-fit bg-[hsla(0,0%,92%)] text-muted-foreground">
                                     <SelectValue placeholder="Select content type" />
                                  </SelectTrigger>
 
@@ -69,6 +57,8 @@ export const Pricing = () => {
                                  </SelectContent>
                               </Select>
                            </FormControl>
+
+                           <FormMessage />
                         </FormItem>
                      )}
                   />
@@ -87,7 +77,7 @@ export const Pricing = () => {
                                  value={field.value}
                                  onValueChange={field.onChange}
                               >
-                                 <SelectTrigger className="gap-4 py-2.5 h-fit bg-[hsla(0,0%,92%)] text-muted-foreground" >
+                                 <SelectTrigger className="gap-4 py-2.5 h-fit bg-[hsla(0,0%,92%)] text-muted-foreground">
                                     <SelectValue placeholder="Select number of words" />
                                  </SelectTrigger>
 
@@ -111,8 +101,8 @@ export const Pricing = () => {
                         key={index}
                         onClick={() => {
                            form.setValue('price', data.amount);
-                           form.setValue('planName', data.planName)
-                           form.handleSubmit(onSubmit)
+                           form.setValue('planName', data.planName);
+                           form.handleSubmit(onSubmit)();
                         }}
                         {...data}
                      />
