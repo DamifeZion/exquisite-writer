@@ -1,0 +1,17 @@
+0) In your package.json, make sure to add the line   "homepage": "/", before scripts.
+
+1) Copy the .htaccess file in the cpanel setup and then push replace the one in the cpanel public_html.
+
+2) If wordpress then create a new folder 'blog' or 'wp'.
+
+3) Move all wordpress files in the cpanel to the file created in step (2).
+
+4) Upload the zipped build.
+
+5) Extract the zipped file to the public_html
+
+6) Go to cpanel PhpMyAdmin, and then find the database for the wordpress.
+
+7) Search the database for wp_options or whatever its called, it will have '_options' at end.
+
+8) Find where the coloumn option_name = 'siteurl' and also 'home', then replace it to be the 'base url/blog' or 'base url/the folder name in (2)'. 

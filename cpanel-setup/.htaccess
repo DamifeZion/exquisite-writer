@@ -1,0 +1,21 @@
+/** TO handle the redirect re-route */
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Allow access to WordPress admin and login
+RewriteCond %{REQUEST_URI} ^/blog/wp-admin [NC,OR]
+RewriteCond %{REQUEST_URI} ^/blog/wp-login.php [NC,OR]
+RewriteCond %{REQUEST_URI} ^/blog/wp-json/ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/blog/wp-content/ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/blog/wp-includes/ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/blog/wp-cron.php [NC,OR]
+RewriteCond %{REQUEST_URI} ^/blog/index.php [NC,OR]
+RewriteCond %{REQUEST_URI} ^/blog/.*\.php$ [NC]
+RewriteRule ^ - [L]
+
+# Redirect all other routes to React app's index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
+</IfModule>
