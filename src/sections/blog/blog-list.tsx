@@ -1,18 +1,20 @@
 import { BlogCard } from "@/components/blog/blog-card"
 import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
+import { useWordpress, WordpressPostType } from "@/hooks/use-wordpress"
 
 
 
 export const BlogLists = () => {
+   const { posts } = useWordpress()
 
    return (
       <div className="relative">
          <ScrollSpySection className="container relative max-w-md sm:max-w-7xl lg:pt-28 lg:pb-40">
             <div className="grid gap-8 py-20 sm:grid-cols-2 lg:grid-cols-3">
-               {Array.from({ length: 15 }).map((_, index) => (
+               {posts && posts.map((data: WordpressPostType, index) => (
                   <BlogCard
                      key={index}
-                     id={String(index)}
+                     {...data}
                   />
                ))}
             </div>

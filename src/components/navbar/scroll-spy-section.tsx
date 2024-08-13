@@ -18,6 +18,12 @@ export const ScrollSpySection: React.FC<ScrollSpySectionProps> = ({ children, cl
       threshold: 0.6,
    })
 
+
+   // Scroll to the top on the first render
+   useEffect(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+   }, []);
+
    useEffect(() => {
       if (inView && route) {
          dispatch(setActiveMenu(route))

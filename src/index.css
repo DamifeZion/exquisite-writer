@@ -70,6 +70,34 @@
       @apply bg-background text-foreground min-w-[320px] font-font-1;
    }
    .container {
-      @apply max-lg:!p-4
+      @apply max-lg:!p-4;
+   }
+
+   #wordpress-contents {
+      @apply mt-10 mb-16 
+
+      [&_img]:mt-6 [&_img]:rounded-sm 
+      
+      [&_p]:leading-7 [&_p]:text-md md:[&_p]:text-lg [&_p:not(:first-child)]:mt-6 
+      
+      [&_h1]:mt-6 [&_h1]:scroll-m-20 [&_h1]:text-[28px] [&_h1]:leading-none [&_h1]:font-extrabold min-[400px]:[&_h1]:text-4xl min-[400px]:[&_h1]:tracking-tight lg:[&_h1]:text-5xl
+
+      [&_h2]:mt-6 [&_h2]:scroll-m-20 [&_h2]:border-b [&_h2]:pb-2 [&_h2]:text-3xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2:first-child]:mt-0
+
+      [&_h3]:mt-6 [&_h3]:scroll-m-20 [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:tracking-tight
+      
+      [&_h4]:mt-6 [&_h4]:scroll-m-20 [&_h4]:text-xl lg:[&_h4]:text-2xl [&_h4]:font-medium [&_h4]:tracking-tight  
+
+      [&_h5]:mt-6 [&_h5]:font-medium
+
+      [&_h6]:mt-6 [&_h6]:font-medium
+      
+      [&_ul]:mt-6 [&_ul]:ml-6 [&_ul]:list-disc 
+      
+      [&_ol]:mt-6 [&_ol]:ml-6 [&_ol]:list-decimal
+      
+      [&_li:not(:first-child)]:mt-2 [&_li]:text-md md:[&_li]:text-lg 
+      
+      [&_a]:text-md md:[&_a]:text-lg [&_a]:underline-offset-2 [&_a:hover]:underline;
    }
 }
