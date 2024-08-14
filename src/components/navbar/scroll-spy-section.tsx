@@ -5,24 +5,23 @@ import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import { useDispatch, useSelector } from "react-redux"
 import { Element } from "react-scroll"
+import { useScrollToTopOnNavigate } from "@/hooks/use-scroll-to-top"
 
 type ScrollSpySectionProps = Omit<React.HTMLProps<HTMLDivElement>, 'ref'> & {
    route?: string
+   scrollToTopOnNavigate?: boolean
 }
 
-export const ScrollSpySection: React.FC<ScrollSpySectionProps> = ({ children, className, route, ...props }) => {
+export const ScrollSpySection: React.FC<ScrollSpySectionProps> = ({ children, className, scrollToTopOnNavigate, route, ...props }) => {
    const { activeMenu } = useSelector((state: StoreRootState) => state.navSlice)
    const dispatch = useDispatch();
-
+   
    const { ref, inView } = useInView({
       threshold: 0.6,
    })
 
-
-   // Scroll to the top on the first render
-   useEffect(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-   }, []);
+   // Everytime the user change location we scroll back to top.
+   useScrollToTopOnNavigate(scrollToTopOnNavigate)
 
    useEffect(() => {
       if (inView && route) {

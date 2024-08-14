@@ -37,6 +37,12 @@ export type WordpressPostDetailsType = {
    categories: string[];
 };
 
+type WordpressLoadingType = {
+   categories: boolean;
+   posts: boolean;
+   postDetails: boolean;
+};
+
 // Create an Axios instance for WordPress API
 const wordpressAPI = createAxiosInstance(wordpress_development_base_api);
 
@@ -45,6 +51,11 @@ export const useWordpress = () => {
 
    // Initialize state with empty arrays
    const [categories, setCategories] = useState<WordpressCategoryType[]>([]);
+   const [loading, setLoading] = useState<WordpressLoadingType>({
+      categories: false,
+      posts: false,
+      postDetails: false,
+   });
    const [posts, setPosts] = useState<WordpressPostType[]>([]);
 
    // Fetch post details.
@@ -54,6 +65,11 @@ export const useWordpress = () => {
    // Fetch all categories
    useEffect(() => {
       const getAllCategories = async () => {
+         setLoading((prev) => ({
+            ...prev,
+            categories: true,
+         }));
+
          try {
             const res = await wordpressAPI.get("/categories");
 
@@ -81,8 +97,18 @@ export const useWordpress = () => {
             );
 
             setCategories(sortedCategories);
+
+            setLoading((prev) => ({
+               ...prev,
+               categories: false,
+            }));
          } catch (error: unknown) {
             axiosErrorHandler(error);
+
+            setLoading((prev) => ({
+               ...prev,
+               categories: false,
+            }));
          }
       };
 
@@ -92,42 +118,74 @@ export const useWordpress = () => {
    // Fetch all posts and filter only published posts
    useEffect(() => {
       const getAllPosts = async () => {
+         setLoading((prev) => ({
+            ...prev,
+            posts: true,
+         }));
+
          try {
             const res = await wordpressAPI.get("/posts");
 
-            const publishedPosts = res.data
-               .filter((item: { status: string }) => item.status === "publish")
-               .map(
-                  (item: {
-                     id: number;
-                     date: string;
-                     jetpack_featured_media_url: string;
-                     content: { rendered: string };
-                     title: { rendered: string };
-                     categories: Array<number>;
-                  }): WordpressPostType => {
-                     return {
-                        id: item.id,
-                        date: item.date,
-                        featuredImage: item.jetpack_featured_media_url || "",
-                        content: item.content.rendered,
-                        title: item.title.rendered,
-                        status: "publish",
-                        categories: item.categories.map(
-                           (categoryId: number) => {
-                              const category = categories.find(
-                                 (c) => c.id === categoryId
-                              );
-                              return category ? category.name : "Unknown";
-                           }
-                        ),
-                     };
-                  }
-               );
+            const fetchFeaturedImage = async (mediaId: number) => {
+               try {
+                  const mediaRes = await wordpressAPI.get(`/media/${mediaId}`);
+                  return mediaRes.data.source_url || "";
+               } catch {
+                  return "";
+               }
+            };
+
+            const publishedPosts = await Promise.all(
+               res.data
+                  .filter(
+                     (item: { status: string }) => item.status === "publish"
+                  )
+                  .map(
+                     async (item: {
+                        id: number;
+                        date: string;
+                        featured_media: number;
+                        content: { rendered: string };
+                        title: { rendered: string };
+                        categories: Array<number>;
+                     }): Promise<WordpressPostType> => {
+                        const featuredImage = item.featured_media
+                           ? await fetchFeaturedImage(item.featured_media)
+                           : "";
+
+                        return {
+                           id: item.id,
+                           date: item.date,
+                           featuredImage,
+                           content: item.content.rendered,
+                           title: item.title.rendered,
+                           status: "publish",
+                           categories: item.categories.map(
+                              (categoryId: number) => {
+                                 const category = categories.find(
+                                    (c) => c.id === categoryId
+                                 );
+                                 return category ? category.name : "Unknown";
+                              }
+                           ),
+                        };
+                     }
+                  )
+            );
 
             setPosts(publishedPosts);
+
+            setLoading((prev) => ({
+               ...prev,
+               posts: false,
+            }));
          } catch (error: unknown) {
             axiosErrorHandler(error);
+
+            setLoading((prev) => ({
+               ...prev,
+               posts: false,
+            }));
          }
       };
 
@@ -137,20 +195,29 @@ export const useWordpress = () => {
       }
    }, [categories]);
 
-   //NOTE: Get post by ID from posts array when it loads.
+   // Get post by ID from posts array when it loads.
    useEffect(() => {
       if (blogDetailsID && posts.length > 0) {
-         // NOTE: Check the post array if the id in the route param match, else redirect to blogs;
+         setLoading((prev) => ({
+            ...prev,
+            postDetails: true,
+         }));
+
+         // Check the post array if the id in the route param matches, else redirect to blogs;
          const post = posts.find((p) => p.id === parseInt(blogDetailsID));
 
          if (post) {
+            setLoading((prev) => ({
+               ...prev,
+               postDetails: false,
+            }));
             setPostDetails(post);
          } else {
-            // NOTE: Redirect to blog
+            // Redirect to blog
             navigate(routeConstants.blogs);
          }
       }
    }, [blogDetailsID, navigate, posts]);
 
-   return { categories, posts, postDetails };
+   return { categories, posts, postDetails, loading };
 };

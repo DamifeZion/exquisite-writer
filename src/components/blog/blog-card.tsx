@@ -14,7 +14,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ id, categories, content, dat
       <Card className="*:p-4">
          <CardHeader className="gap-4">
             <img
-               src={featuredImage}
+               src={featuredImage || "https://placehold.co/600x400"}
                className="w-full h-[220px] rounded-lg object-cover border"
             />
 

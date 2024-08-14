@@ -76,7 +76,7 @@
    #wordpress-contents {
       @apply mt-10 mb-16 
 
-      [&_img]:mt-6 [&_img]:rounded-sm 
+      [&_img]:mt-6 [&_img]:rounded-sm [&_img]:w-full
       
       [&_p]:leading-7 [&_p]:text-md md:[&_p]:text-lg [&_p:not(:first-child)]:mt-6 
       

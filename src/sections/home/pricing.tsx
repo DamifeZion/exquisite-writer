@@ -11,8 +11,6 @@ import { capitalizeFirstLetters } from "@/lib/capitalize-first-letter"
 export const Pricing = () => {
    const { form, subscriptionPlans, onSubmit } = useHome();
 
-   console.log(form.getValues())
-
    return (
       <ScrollSpySection route={routeConstants.pricing} className="py-28 bg-[#f9f9f9]">
          <div className="container">

@@ -10,9 +10,9 @@ import moment from "moment"
 
 
 const BlogDetails = () => {
-   const { postDetails } = useWordpress();
+   const { postDetails, loading } = useWordpress();
 
-   if (!postDetails) {
+   if (!postDetails || loading.postDetails) {
       return (
          <div className="container flex flex-col max-w-screen-md gap-5 py-10 lg:max-w-screen-lg lg:gap-10 lg:flex-row">
             <Link to={routeConstants.blogs} variant="ghost" className="w-fit">
@@ -56,9 +56,9 @@ const BlogDetails = () => {
             </Typography>
 
             <img
-               src={postDetails?.featuredImage}
+               src={postDetails?.featuredImage || "https://placehold.co/600x400"}
                alt={postDetails?.title}
-               className="w-full max-h-[393px] mt-6 rounded-xl "
+               className="w-full max-h-[393px] object-cover mt-6 rounded-xl "
             />
 
             <div
