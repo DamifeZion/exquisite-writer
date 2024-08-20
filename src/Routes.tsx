@@ -3,13 +3,14 @@ import { routeConstants } from "@/constants/route-const"
 import React, { Suspense } from "react";
 import { Footer } from "./components/footer/footer";
 import { Navbar } from "./components/navbar/navbar";
-import { LoadingFallback } from "./components/loading-fallbacl";
+import { LoadingFallback } from "./components/loading-fallback";
 
 const Home = React.lazy(() => import('@/pages/Home'))
 const Blog = React.lazy(() => import('@/pages/Blog'))
 const BlogDetails = React.lazy(() => import("@/pages/BlogDetails"))
 const Contact = React.lazy(() => import("@/pages/Contact"))
 const PrivacyPolicy = React.lazy(() => import("@/pages/PrivacyPolicy"))
+const NotFound = React.lazy(() => import("@/pages/NotFound"));
 
 const Routes = () => {
    return (
@@ -21,6 +22,7 @@ const Routes = () => {
             <Route path={routeConstants.blogDetails} element={<BlogDetails />} />
             <Route path={routeConstants.contact} element={<Contact />} />
             <Route path={routeConstants.privacyPolicy} element={<PrivacyPolicy />} />
+            <Route path="*" element={<NotFound />} />
          </Router>
          <Footer />
       </Suspense>

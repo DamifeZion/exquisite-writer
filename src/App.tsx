@@ -2,6 +2,7 @@ import { BrowserRouter } from "react-router-dom"
 import Routes from "./Routes"
 import { Provider } from "react-redux"
 import { store } from "./services/store"
+import { Toaster } from "sonner"
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes />
+        <Toaster richColors position="top-center" />
       </BrowserRouter>
     </Provider>
   )
