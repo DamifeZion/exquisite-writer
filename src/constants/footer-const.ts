@@ -30,6 +30,6 @@ export const OTHER_LINKS = [
    },
    {
       label: "Contact Us",
-      href: routeConstants.getStarted,
+      href: routeConstants.contact,
    },
 ];

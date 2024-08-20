@@ -8,8 +8,8 @@ import { LoadingFallback } from "./components/loading-fallbacl";
 const Home = React.lazy(() => import('@/pages/Home'))
 const Blog = React.lazy(() => import('@/pages/Blog'))
 const BlogDetails = React.lazy(() => import("@/pages/BlogDetails"))
-
-
+const Contact = React.lazy(() => import("@/pages/Contact"))
+const PrivacyPolicy = React.lazy(() => import("@/pages/PrivacyPolicy"))
 
 const Routes = () => {
    return (
@@ -17,8 +17,10 @@ const Routes = () => {
          <Navbar />
          <Router>
             <Route index path={routeConstants.home} element={<Home />} />
-            <Route  path={routeConstants.blogs} element={<Blog />} />
+            <Route path={routeConstants.blogs} element={<Blog />} />
             <Route path={routeConstants.blogDetails} element={<BlogDetails />} />
+            <Route path={routeConstants.contact} element={<Contact />} />
+            <Route path={routeConstants.privacyPolicy} element={<PrivacyPolicy />} />
          </Router>
          <Footer />
       </Suspense>

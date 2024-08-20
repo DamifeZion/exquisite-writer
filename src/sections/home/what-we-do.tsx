@@ -3,19 +3,20 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import Typography from "@/components/ui/typography"
 import { routeConstants } from "@/constants/route-const"
-import { Button } from "@/components/ui/button"
 import { WhatWeDoCard } from "@/components/home/what-we-do-card"
 import { WHAT_WE_DO } from "@/constants/home-const"
 import { cn } from "@/lib/utils"
+import { Link } from "@/components/ui/link"
 
 
-type GetStartedButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
+type GetStartedButtonProps = React.HTMLAttributes<HTMLElement> & {
    deviceType: "mobile" | "desktop";
 }
 
 const GetStartedButton: React.FC<GetStartedButtonProps> = ({ deviceType, className, ...props }) => {
    return (
-      <Button
+      <Link
+         to={routeConstants.pricing}
          className={cn(
             "w-fit px-10 py-6 font-light bg-black border rounded-sm transition-all duration-150 ease-linear border-primary-foreground hover:bg-black hover:scale-105",
             {
@@ -26,7 +27,7 @@ const GetStartedButton: React.FC<GetStartedButtonProps> = ({ deviceType, classNa
          {...props}
       >
          Get Started
-      </Button>
+      </Link>
    )
 }
 

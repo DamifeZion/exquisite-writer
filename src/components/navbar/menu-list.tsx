@@ -25,7 +25,7 @@ export const MenuList: React.FC<MenuListProps> = ({ onClick }) => {
                   onClick={handleClick}
                   className={cn("justify-start w-full font-medium max-lg:text-lg max-lg:py-6", {
                      "font-semibold": activeMenu === data.href,
-                     "text-primary border-primary bg-transparent hover:bg-primary hover:text-primary-foreground !no-underline": data.button
+                     "text-primary border-primary bg-transparent hover:bg-primary hover:text-primary-foreground !no-underline border": data.button,
                   })}
                >
                   {data.label}

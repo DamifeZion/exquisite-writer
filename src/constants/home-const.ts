@@ -5,7 +5,7 @@ import { WhatWeDOCardProps } from "@/components/home/what-we-do-card";
 import { Edit } from "lucide-react";
 import { TeamCardProps } from "@/components/home/team-card";
 import { TestimonialCardProps } from "@/components/home/testimonial-card";
-import {  FrequentlyAskedQuestionsProps } from "@/sections/home/frequent-questions";
+import { FrequentlyAskedQuestionsProps } from "@/sections/home/frequent-questions";
 import { CommitmentCardProps } from "@/components/home/our-commitment-card";
 import { PricingCardProps } from "@/components/home/pricing-card";
 
@@ -158,24 +158,34 @@ export const FAQ_DATA: Array<FrequentlyAskedQuestionsProps> = [
 
 export const OUR_COMMITMENTS: Array<CommitmentCardProps> = [
    {
-      title: "Ensuring Originality",
+      title: "Discover",
       description:
-         " Advanced plagiarism detection guarantees 100% original content, complemented by thorough checks for grammar, spelling, and readability.",
+         "This initial phase focuses on understanding your unique content needs. We engage in detailed discussions to uncover the specific requirements, goals, and audience for your project.",
    },
    {
-      title: "Easily Request Revisions",
+      title: "Define",
       description:
-         "Requesting revisions is a breeze with a click. Two free revisions are offered within a specified window after delivery.",
+         "After gathering insights, we clearly outline the project’s scope, breaking down all necessary components. ",
    },
    {
-      title: "Support for All Team Sizes",
+      title: "Design",
       description:
-         "From solo marketers to large teams or organizations, we provide seamless support to meet your needs.",
+         "In this stage, an action plan is created. It includes a timeline and the steps we'll take to execute the project, ensuring transparency and preparedness.",
    },
    {
-      title: "Content Safety and Confidentiality",
+      title: "Develop",
       description:
-         " We prioritize your content's security with stringent measures. For added peace of mind, your ideas and content remain exclusively yours.",
+         "Here, our skilled writers start crafting the content, following your specifications and the strategic plan laid out during the design phase.",
+   },
+   {
+      title: "Define",
+      description:
+         "The content goes through a rigorous editing process where we ensure adherence to your guidelines, followed by proofreading for quality assurance.",
+   },
+   {
+      title: "Deliver",
+      description:
+         "Finally, the completed project is delivered on time, polished, and ready for your use. We ensure every detail is perfect, providing you with content that meets your high standards.",
    },
 ];
 

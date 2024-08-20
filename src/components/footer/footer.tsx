@@ -9,6 +9,8 @@ import { OTHER_LINKS, SERVICES } from "@/constants/footer-const"
 import { Link } from "../ui/link"
 import { MENU_LiST } from "@/constants/nav-const"
 import { cn } from "@/lib/utils"
+import { routeConstants } from "@/constants/route-const";
+import { Link as RouterLink } from "react-router-dom"
 
 export const Footer = () => {
    const location = useLocation();
@@ -22,9 +24,9 @@ export const Footer = () => {
                      Ready to get started?
                   </Typography>
 
-                  <Button variant="secondary" className="mt-6">
+                  <Link to={routeConstants.pricing} variant="secondary" className="mt-6">
                      Get Started
-                  </Button>
+                  </Link>
                </div>
 
                <div className="grid gap-x-16 grid-cols-2 min-[400px]:grid-cols-3 sm:max-w-sm sm:grid-cols-3 [&_li]:!w-fit">
@@ -84,7 +86,9 @@ export const Footer = () => {
                      </Typography>
 
                      <Typography affects="removePMargin" variant="p">
-                        Privacy Policy
+                        <RouterLink to={routeConstants.privacyPolicy}>
+                           Privacy Policy
+                        </RouterLink>
                      </Typography>
                   </div>
 

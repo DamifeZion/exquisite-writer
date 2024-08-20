@@ -19,15 +19,15 @@ export const OurCommitment = () => {
          <div className="container relative z-10 flex flex-col justify-between gap-24 lg:flex-row lg:gap-x-28">
             <div className="max-w-lg">
                <Typography variant="h1" className="font-semibold !leading-tight ">
-                  Our Commitment to Excellence Drives Your Success
+                  Mastering Content Creation with Our Proven 6-D Process
                </Typography>
 
                <Typography variant="p" className="mt-8">
-                  Unwavering commitment to delivering exceptional content ensures that your objectives are met with unparalleled efficiency and precision. Offering a diverse range of services, both individual writers and businesses can benefit.
+                  Our 6-D Process is designed to ensure your content not only meets your expectations but exceeds them. Each phase is handled with meticulous care and expertise. This comprehensive approach guarantees success at every stage of your content journey.
                </Typography>
             </div>
 
-            <div className="grid gap-10 min-[550px]:grid-cols-2 *:relative min-[550px]:gap-x-6 min-[550px]:[&>*:nth-child(1n+2)]:top-16 min-[550px]:[&>*:nth-child(1n+3)]:top-8 min-[550px]:[&>*:nth-child(1n+4)]:top-32 ">
+            <div className="grid gap-x-6 gap-y-6 min-[550px]:grid-cols-2 *:relative min-[550px]:gap-y-4 min-[550px]:[&>*:nth-child(2n+2)]:top-20 ">
                {OUR_COMMITMENTS.map((data, index) => (
                   <OurCommitmentCard
                      key={index}
@@ -39,3 +39,5 @@ export const OurCommitment = () => {
       </ScrollSpySection>
    )
 }
+
+// min-[550px]:gap-x-6 min-[550px]:[&>*:nth-child(1n+2)]:top-16 min-[550px]:[&>*:nth-child(1n+3)]:top-8 min-[550px]:[&>*:nth-child(1n+4)]:top-32

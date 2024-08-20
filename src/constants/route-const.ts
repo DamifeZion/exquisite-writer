@@ -5,7 +5,9 @@ export const routeConstants = {
    about: "/#about",
    pricing: "/#pricing",
    faq: "/#faq",
-   getStarted: "?get-started=true",
+   getStarted: "/#pricing",
    blogs: "/blogs",
    blogDetails: "/blogs/:id",
+   contact: "/contact",
+   privacyPolicy: "/privacy-policy",
 };

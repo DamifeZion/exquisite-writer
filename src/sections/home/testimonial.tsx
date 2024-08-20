@@ -1,10 +1,11 @@
 import { TestimonialCard } from "@/components/home/testimonial-card"
 import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { Link } from "@/components/ui/link"
 import Typography from "@/components/ui/typography"
 import { TESTIMONIALS } from "@/constants/home-const"
+import { routeConstants } from "@/constants/route-const"
 import AutoPlay from "embla-carousel-autoplay"
 
 export const Testimonial = () => {
@@ -27,9 +28,9 @@ export const Testimonial = () => {
                      See how Exquisite Writers has transformed writing journeys, boosting confidence and achieving dreams. Read real success stories and discover our commitment to excellence.
                   </Typography>
 
-                  <Button className="px-10 py-6 mt-20 font-light transition-all duration-150 ease-linear bg-black border w-fit rounded-smborder-primary-foreground hover:bg-black hover:scale-105">
+                  <Link to={routeConstants.pricing} className="px-10 py-6 mt-20 font-light transition-all duration-150 ease-linear bg-black border w-fit rounded-smborder-primary-foreground hover:bg-black hover:scale-105" >
                      Get Started
-                  </Button>
+                  </Link>
                </div>
                -
                <div className="relative flex-grow max-w-xl before:absolute before:-top-4 before:w-full before:min-h-[100px] before:lg:min-h-[220px] before:z-10 before:bg-gradient-to-b before:from-[hsl(274,100%,51%)] before:via-[hsl(274,100%,51%)]/95 max-lg:mt-20">

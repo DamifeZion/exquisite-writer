@@ -15,7 +15,7 @@ export const HeroSection = () => [
       <div className="container">
          <div className="md:grid md:grid-cols-2">
             <div>
-               <div id="hero-text" className="max-w-[550px]">
+               <div id="hero-text" className="max-w-[580px]">
                   <div className="!min-h-10">
                      <Typewriter
                         options={{
@@ -27,12 +27,12 @@ export const HeroSection = () => [
                      />
                   </div>
 
-                  <Typography variant="h1" className="text-4xl leading-[1.18] min-[400px]:text-[46px] min-[480px]:text-[50px] min-[480px]:leading-[1.15] md:text-5xl md:leading-tight lg:text-[72px] lg:leading-[86px]">
-                     Transform Your Ideas into Masterpieces
+                  <Typography variant="h1" className="text-4xl leading-[1.18] min-[400px]:text-[46px] min-[480px]:text-[50px] min-[480px]:leading-[1.15] md:text-5xl md:leading-tight lg:text-[65px] lg:leading-[76px]">
+                     Transform Your Ideas into Engaging Content
                   </Typography>
 
                   <Typography className="mt-4 text-md lg:mt-9">
-                     Step into a world where your writing dreams come to life. We provide the tools, Service, and inspiration to help you thrive.
+                     Exceptional Writing Services for Every Need, whether you need a single blog post or a comprehensive content strategy, our team of expert writers is here to bring your ideas to life.
                   </Typography>
                </div>
 

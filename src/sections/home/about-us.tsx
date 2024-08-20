@@ -41,12 +41,12 @@ export const AboutUsSection = () => {
                <div className="*:mt-10 *:text-md *:font-normal first:*:mt-0 ">
                   <SectionTItle deviceType="desktop" />
 
-                  <Typography>
-                     Exquisite Writers is a vibrant and inclusive community for writers of all levels. Established in [Year],
+                  <Typography variant="p" className="!font-bold">
+                     Delivering Uncompromised Quality and Unique Writing Services
                   </Typography>
 
                   <Typography>
-                     We offer a wide range of services, including custom content creation, professional ghostwriting, and meticulous editing to ensure your work shines. Our interactive workshops and webinars, led by industry experts, are designed to help you hone your craft and achieve your writing goals.
+                     We are a team of professional freelance writers who specialized in various types/niches of writing.  Our writing team focuses on delivering individualized writing service that suits your need. We assist small and large business owners with various writing needs.
                   </Typography>
 
                   <Typography>
@@ -67,23 +67,23 @@ export const AboutUsSection = () => {
                </CardHeader>
 
                <CardContent className="pt-0 space-y-8 pb-14">
-                  <div className="flex text-primary-foreground max-[380px]:flex-col max-[380px]:gap-3">
-                     <Typography className="font-semibold min-w-[100px] text-md">
-                        Vision:
-                     </Typography>
-
-                     <Typography affects="medium" className="font-normal max-[400px]:text-md">
-                        To empower writers by providing high-quality resources, expert guidance, and a vibrant community that nurtures creativity and growth.
-                     </Typography>
-                  </div>
-
                   <div className="flex text-primary-foreground  max-[380px]:flex-col max-[380px]:gap-3">
                      <Typography className="font-semibold min-w-[100px] max-[400px]:text-md">
                         Mission:
                      </Typography>
 
                      <Typography affects="medium" className="font-normal">
-                        To empower writers by providing high-quality resources, expert guidance, and a vibrant community that nurtures creativity and growth.
+                        Our mission is to deliver unique and uncompromised quality in every piece of content we create. We focus on providing personalized writing services that cater to the specific needs of both small and large businesses. By transforming your ideas into words, we aim to enhance your personal and business presence through exceptional content.
+                     </Typography>
+                  </div>
+
+                  <div className="flex text-primary-foreground max-[380px]:flex-col max-[380px]:gap-3">
+                     <Typography className="font-semibold min-w-[100px] text-md">
+                        Vision:
+                     </Typography>
+
+                     <Typography affects="medium" className="font-normal max-[400px]:text-md">
+                        To be recognized as a premier writing agency known for its creativity, excellence, and dedication to delivering high-quality, tailored content that meets the diverse needs of our clients.
                      </Typography>
                   </div>
                </CardContent>

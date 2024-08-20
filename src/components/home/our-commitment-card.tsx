@@ -9,7 +9,7 @@ export type CommitmentCardProps = {
 export const OurCommitmentCard: React.FC<CommitmentCardProps> = ({ title, description }) => {
 
    return (
-      <Card className="border-none shadown-2xl !h-fit">
+      <Card className="flex flex-col items-center justify-center border-none shadow-[0_0_20px_rgba(0,0,0,0.07)] rounded-2xl">
          <CardHeader className="items-center gap-3 pb-2">
             <img 
                src="/safe.svg" 
