@@ -45,25 +45,29 @@ export const THE_TEAM: Array<TeamCardProps> = [
       src: "/team-1.svg",
       name: "Ola Isaac ",
       position: "Lead Wordsmith",
-      description: "I love to exquisitely craft content to enhance the quality of what readers consume. I have a keen eye for detail, and nothing escapes my notice.",
+      description:
+         "I love to exquisitely craft content to enhance the quality of what readers consume. I have a keen eye for detail, and nothing escapes my notice.",
    },
    {
       src: "/team-2.svg",
       name: "Ola Opeyemi",
       position: "Chief Workflow Officer",
-      description: "I am a creative visionary with exceptional organizational skills. My passion extends beyond achieving the final outcome; I am equally invested in the process and workflow that leads to success.",
+      description:
+         "I am a creative visionary with exceptional organizational skills. My passion extends beyond achieving the final outcome; I am equally invested in the process and workflow that leads to success.",
    },
    {
       src: "/team-3.svg",
       name: "Isaac Opeyemi",
       position: "Lead Wordsmith Editor",
-      description: "I am a passionate writer whose craft goes beyond stringing words together. With accurate words and a conversational style, I create connections, touch emotions, and inspire readers!",
+      description:
+         "I am a passionate writer whose craft goes beyond stringing words together. With accurate words and a conversational style, I create connections, touch emotions, and inspire readers!",
    },
    {
       src: "/team-4.svg",
       name: "Adegboye Opeyemi",
       position: "Wordsmith",
-      description: "I enjoy weaving words together and finding inspiration in the little things.",
+      description:
+         "I enjoy weaving words together and finding inspiration in the little things.",
    },
    {
       src: "/team-5.svg",
@@ -75,13 +79,15 @@ export const THE_TEAM: Array<TeamCardProps> = [
       src: "/team-6.svg",
       name: "simisola babatunde",
       position: "Wordsmith",
-      description: "A wordsmith with a keen eye for detail and a knack for crafting compelling narratives, Simisola creates content that informs, inspires, and engages audience. ",
+      description:
+         "A wordsmith with a keen eye for detail and a knack for crafting compelling narratives, Simisola creates content that informs, inspires, and engages audience. ",
    },
    {
       src: "/team-7.svg",
       name: "Asenge Adeleye",
       position: "Wordsmith",
-      description: "I am an outstanding writer who explores the depth of creativity with words.",
+      description:
+         "I am an outstanding writer who explores the depth of creativity with words.",
    },
 ];
 
@@ -132,37 +138,47 @@ export const FAQ_DATA: Array<FrequentlyAskedQuestionsProps> = [
    {
       title: "What services does Exquisite Writers offer?",
       description:
-         "soiwoi epmeg 434jf wmcoimw 404j0v w0imwc03m v33vm03vm w03vmv30i",
+         "Exquisite Writing Service offers a wide range of writing services, including: Blogs, Articles, Website Content, Product Descriptions, Ebooks, Press Releases, Technical Writing, White Papers, Case Studies, Social Media Content, Business Plans, Newsletters, Ghostwriting, Copywriting, Editing and Proofreading",
    },
    {
       title: "How can I request revisions?",
-      description:
-         "soiwoi epmeg 434jf wmcoimw 404j0v w0imwc03m v33vm03vm w03vmv30i",
+      description: `<p>Requesting revisions is simple. Once you receive your completed content, you can review it and request any necessary changes. Our revision policy includes:</p>
+      <ul style="margin-left: 1.5rem; list-style-type: disc;">
+         <li>Starter Tier: Up to 2 rounds of revisions</li>
+         <li>Professional Tier: Up to 3 rounds of revisions</li>
+         <li>Elite Tier: Unlimited revisions within 14 days of delivery</li>
+      </ul>`,
    },
    {
       title: "Is the content checked for plagiarism?",
       description:
-         "soiwoi epmeg 434jf wmcoimw 404j0v w0imwc03m v33vm03vm w03vmv30i",
+         "Yes, all content produced by Exquisite Writing Service is thoroughly checked for plagiarism. We use advanced plagiarism detection software to ensure the originality and uniqueness of every piece of content delivered to our clients.",
    },
    {
       title: "How do you ensure content security?",
       description:
-         "soiwoi epmeg 434jf wmcoimw 404j0v w0imwc03m v33vm03vm w03vmv30i",
+         "We take content security very seriously. Our measures include: Secure file transfer protocols, Strict confidentiality agreements with our writers and staff, Regular data backups, Secure storage of all client data and content We ensure that your content and personal information are protected at all times.",
    },
    {
       title: "What if I need a service not listed?",
       description:
-         "soiwoi epmeg 434jf wmcoimw 404j0v w0imwc03m v33vm03vm w03vmv30i",
+         "If you require a service that is not listed on our website, please contact us directly. We are always open to discussing custom writing projects and can often accommodate special requests. Our team will work with you to understand your specific needs and provide a tailored solution.",
    },
    {
       title: "Are there any community features?",
       description:
-         "soiwoi epmeg 434jf wmcoimw 404j0v w0imwc03m v33vm03vm w03vmv30i",
+         "Yes, Exquisite Writing Service offers several community features, including: Regular webinars and workshops on various writing and content-creation topics, A blog with tips, advice, and industry news, A newsletter with updates, exclusive offers, and insights. These features are designed to help you get the most out of our services and connect with like-minded individuals",
    },
    {
       title: "How do I get started?",
-      description:
-         "soiwoi epmeg 434jf wmcoimw 404j0v w0imwc03m v33vm03vm w03vmv30i",
+      description: `<p>Getting started with Exquisite Writing Service is easy. Follow these steps:</p>
+      <ul style="margin-left: 1.5rem; list-style-type: decimal;">
+         <li>Visit our Website: Browse our services and choose the one that best suits your needs.</li>
+         <li>Place an Order: Fill out our order form with the details of your project.</li>
+         <li>Make a Payment: Securely process your payment through our platform.</li>
+         <li>Collaborate: Work with our team to refine your requirements and complete your project.</li>
+         <li>Receive Your Content: Review, request revisions if needed, and approve the final content.</li>
+      </ul>`,
    },
 ];
 
