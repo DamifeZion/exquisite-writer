@@ -1,12 +1,15 @@
 import { PricingCard } from "@/components/home/pricing-card"
 import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Typography from "@/components/ui/typography"
 import { CONTENT_TYPES, WORD_COUNT } from "@/constants/home-const"
 import { routeConstants } from "@/constants/route-const"
 import { useHome } from "@/hooks/use-home"
-import { capitalizeFirstLetters } from "@/lib/capitalize-first-letter"
+import { capitalizeFirstLetters } from "@/lib/capitalize-first-letter-util";
+import { getContentTypeRangeLabel, renderWordCount } from "@/lib/pricing-util"
+import { cn } from "@/lib/utils"
 
 export const Pricing = () => {
    const { form, subscriptionPlans, onSubmit } = useHome();
@@ -65,28 +68,43 @@ export const Pricing = () => {
                      control={form.control}
                      name="wordCount"
                      render={({ field }) => (
-                        <FormItem className="grid items-center *:text-center">
+                        <FormItem className={cn("grid items-center *:text-center", {
+                           "max-w-[130px]": form.watch("contentType") === "website content"
+                        })}>
                            <FormLabel>
-                              Number of words
+                              {getContentTypeRangeLabel(form.watch("contentType"))}
                            </FormLabel>
 
                            <FormControl>
-                              <Select
-                                 value={field.value}
-                                 onValueChange={field.onChange}
-                              >
-                                 <SelectTrigger className="gap-4 py-2.5 h-fit bg-[hsla(0,0%,92%)] text-muted-foreground">
-                                    <SelectValue placeholder="Select number of words" />
-                                 </SelectTrigger>
+                              {/* NOTE: If the "content type" is website content, we show an input, to allow user select number else a select */}
+                              {form.watch("contentType") === "website content" ? (
+                                 <Input
+                                    type="number"
+                                    placeholder="Enter number of page(s)"
+                                    className="py-2.5 h-fit bg-[hsla(0,0%,92%)] text-muted-foreground"
+                                    {...field}
+                                 />
+                              ) : (
+                                 <Select
+                                    value={field.value}
+                                    defaultValue={WORD_COUNT[0]}
+                                    onValueChange={field.onChange}
+                                 >
+                                    <SelectTrigger className="gap-4 py-2.5 h-fit bg-[hsla(0,0%,92%)] text-muted-foreground">
+                                       <SelectValue placeholder="Select number of words" />
+                                    </SelectTrigger>
 
-                                 <SelectContent className="bg-[hsla(0,0%,92%)]">
-                                    {WORD_COUNT.map((data, index) => (
-                                       <SelectItem key={data + index} value={data}>
-                                          {capitalizeFirstLetters(data)}
-                                       </SelectItem>
-                                    ))}
-                                 </SelectContent>
-                              </Select>
+                                    <SelectContent className="max-h-64 bg-[hsla(0,0%,92%)]">
+
+                                       {renderWordCount(form.watch("contentType")).map((data, index) => (
+                                          <SelectItem key={data + index} value={data}>
+                                             {capitalizeFirstLetters(data)}
+                                          </SelectItem>
+                                       ))}
+                                    </SelectContent>
+                                 </Select>
+                              )}
+
                            </FormControl>
                         </FormItem>
                      )}

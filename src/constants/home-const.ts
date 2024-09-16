@@ -12,16 +12,15 @@ import { PricingCardProps } from "@/components/home/pricing-card";
 export const WHAT_WE_DO: Array<WhatWeDOCardProps> = [
    {
       icon: Edit,
-      title: "Ghostwriting & Editing",
+      title: "Blog & Article Writing",
       description:
-         "Professional ghostwriting for books and projects, alongside meticulous editing to polish your work.",
+         "Craft engaging blogs and articles designed to captivate and inform your audience.",
       iconContainerStyle: "bg-[#8FD200]",
    },
    {
       icon: MdScreenshotMonitor,
-      title: "Interactive Workshops & Webinars",
-      description:
-         "Live sessions with industry experts to enhance your writing skills.",
+      title: "Editing and Proofreading services",
+      description: "We ensure your content is error-free and polished.",
       iconContainerStyle: "bg-[#FF8080]",
    },
    {
@@ -33,9 +32,9 @@ export const WHAT_WE_DO: Array<WhatWeDOCardProps> = [
    },
    {
       icon: HiOutlineUsers,
-      title: "Community & Networking",
+      title: "E book Creation",
       description:
-         "Connect with other writers through forums, events, and collaborative projects.",
+         "Produce detailed eBooks tailored to your needs, from concept to completion.",
       iconContainerStyle: "bg-[#F9B286]",
    },
 ];
@@ -84,6 +83,13 @@ export const THE_TEAM: Array<TeamCardProps> = [
    },
    {
       src: "/team-7.svg",
+      name: "Amua Chiara",
+      position: "Wordsmith",
+      description:
+         "I'm Chiara, I think of myself as someone who loves exploration, enjoy creativity and an enthusiastic writer.",
+   },
+   {
+      src: "/team-8.svg",
       name: "Asenge Adeleye",
       position: "Wordsmith",
       description:
@@ -93,44 +99,34 @@ export const THE_TEAM: Array<TeamCardProps> = [
 
 export const TESTIMONIALS: Array<TestimonialCardProps> = [
    {
-      src: "",
-      name: "Bash",
-      rating: "2",
-      description:
-         "He is a fantastic writer, understood my requirements and delivered beyond my expectation",
-      date: "Mar 29, 2022",
-   },
-   {
-      src: "",
-      name: "Bash",
+      ratingNo: "5.0",
       rating: "5",
+      date: "July 05, 2024",
+      time: "5:49 AM",
+      packagPlan: "Urban - 3000 words",
+      type: "Self-Help",
       description:
-         "He is a fantastic writer, understood my requirements and delivered beyond my expectation",
-      date: "Mar 29, 2022",
+         "The Exquisite Writer was very professional, a fantastic communicator, and a pleasure to work with. He followed the book outline he was given and stuck to it. He was extremely efficient and time-concious.",
    },
    {
-      src: "",
-      name: "Bash",
+      ratingNo: "5.0",
       rating: "5",
+      date: "July 05, 2024",
+      time: "5:49 AM",
+      packagPlan: "Urban - 3000 words",
+      type: "Self-Help",
       description:
-         "He is a fantastic writer, understood my requirements and delivered beyond my expectation",
-      date: "Mar 29, 2022",
+         "The Exquisite Writer was very professional, a fantastic communicator, and a pleasure to work with. He followed the book outline he was given and stuck to it. He was extremely efficient and time-concious.",
    },
    {
-      src: "",
-      name: "Bash",
-      rating: "3",
+      ratingNo: "5.0",
+      rating: "5",
+      date: "July 05, 2024",
+      time: "5:49 AM",
+      packagPlan: "Urban - 3000 words",
+      type: "Self-Help",
       description:
-         "He is a fantastic writer, understood my requirements and delivered beyond my expectation",
-      date: "Mar 29, 2022",
-   },
-   {
-      src: "",
-      name: "Bash",
-      rating: "4",
-      description:
-         "He is a fantastic writer, understood my requirements and delivered beyond my expectation",
-      date: "Mar 29, 2022",
+         "The Exquisite Writer was very professional, a fantastic communicator, and a pleasure to work with. He followed the book outline he was given and stuck to it. He was extremely efficient and time-concious.",
    },
 ];
 
@@ -215,15 +211,25 @@ export const OUR_COMMITMENTS: Array<CommitmentCardProps> = [
    },
 ];
 
-export const CONTENT_TYPES: Array<string> = [
+export type ContentType =
+   | "blog"
+   | "articles"
+   | "website content"
+   | "product description"
+   | "ebooks"
+   | "academic writing"
+   | "business plan"
+   | "editing and proofreading";
+
+export const CONTENT_TYPES: Array<ContentType> = [
    "blog",
    "articles",
    "website content",
-   "product descriptions",
-   "white papers",
+   "product description",
    "ebooks",
-   "case studies",
-   "press releases",
+   "academic writing",
+   "business plan",
+   "editing and proofreading",
 ];
 
 export const WORD_COUNT: Array<string> = [
@@ -232,6 +238,17 @@ export const WORD_COUNT: Array<string> = [
    "2001 - 3000",
    "3001 - 5000",
    "5001 - 7000",
+   "7001 - 10000",
+   "10001 - 15000",
+   "15001 - 20000",
+   "20001 - 30000",
+   "30001 - 50000",
+];
+
+export const DESCRIPTION_COUNT: Array<string> = [
+   "1- 100",
+   "101 -200",
+   "201 - 501",
 ];
 
 // NOTE: The amount below is the base amount, but is subject to change based on max words selected in "Use - Home"

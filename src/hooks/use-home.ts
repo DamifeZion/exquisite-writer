@@ -3,11 +3,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useEffect, useState } from "react";
 import { PricingCardProps } from "@/components/home/pricing-card";
-import { CONTENT_TYPES, PLANS, WORD_COUNT } from "@/constants/home-const";
+import {
+   CONTENT_TYPES,
+   ContentType,
+   PLANS,
+   WORD_COUNT,
+} from "@/constants/home-const";
+import {
+   calculatePriceByRange,
+   getCategoryBasePrice,
+} from "@/lib/pricing-util";
 
 export const useHome = () => {
    const formSchema = z.object({
-      contentType: z.string().min(4, {
+      contentType: z.enum(CONTENT_TYPES as [ContentType, ...ContentType[]], {
          message: "Please select a content type",
       }),
       wordCount: z.string().min(4, {
@@ -22,45 +31,56 @@ export const useHome = () => {
    const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
-         contentType: CONTENT_TYPES[0],
+         contentType: "blog",
          wordCount: WORD_COUNT[0],
          price: 0,
          planName: "",
       },
    });
 
-   const [subscriptionPlans, setSubscriptionPlans] = useState<
-      Array<PricingCardProps>
-   >([]);
-
-   const amountPerThousandWords = 1; // $1 per thousand words
-
-   const calculatePrice = (basePrice: number, wordCount: string) => {
-      const maxSelectedWords = parseInt(wordCount.split("-")[1]);
-      const additionalCost = (maxSelectedWords / 1000) * amountPerThousandWords;
-      return basePrice + additionalCost;
-   };
+   const [subscriptionPlans, setSubscriptionPlans] =
+      useState<Array<PricingCardProps>>(PLANS);
 
    const wordCount = form.watch("wordCount");
+   const contentType = form.watch("contentType");
 
-   // Calculate and change the amount based on the word count
+   //Everytime the content type changes, we reset the range to the default for the content type.
+   const { setValue } = form;
+   useEffect(() => {
+      setValue("wordCount", WORD_COUNT[0]);
+
+      if (contentType === "website content") {
+         setValue("wordCount", 1);
+      }
+   }, [setValue, contentType]);
+
+   // Calculate and change the amount based on the word count;
    useEffect(() => {
       let updatedPlans;
 
       updatedPlans = PLANS.map((plan) => ({
          ...plan,
-         amount: calculatePrice(plan.amount, wordCount),
+         amount: getCategoryBasePrice(contentType, plan.planName),
       }));
 
-      if (wordCount) {
-         updatedPlans = PLANS.map((plan) => ({
-            ...plan,
-            amount: calculatePrice(plan.amount, wordCount),
-         }));
+      if (wordCount && contentType) {
+         updatedPlans = PLANS.map((plan) => {
+            const basePrice = getCategoryBasePrice(contentType, plan.planName);
+            const calculatedPrice = calculatePriceByRange(
+               basePrice,
+               wordCount,
+               contentType
+            );
+
+            return {
+               ...plan,
+               amount: calculatedPrice,
+            };
+         });
       }
 
       setSubscriptionPlans(updatedPlans);
-   }, [wordCount]);
+   }, [wordCount, contentType]);
 
    // NOTE: Handle submitting these values using
    const onSubmit = (values: z.infer<typeof formSchema>) => {

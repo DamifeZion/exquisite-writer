@@ -3,7 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card
 import Typography from "../ui/typography"
 
 export type PricingCardProps = {
-   planName: string;
+   planName: "Starter" | "Professional" | "Elite";
    amount: number;
    features: Array<string>;
    onClick?: () => void

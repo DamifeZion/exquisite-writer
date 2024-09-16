@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader } from "../ui/card"
 import Typography from "../ui/typography";
 import { routeConstants } from "@/constants/route-const";
 import { WordpressPostType } from "@/hooks/use-wordpress";
-import { capitalizeFirstLetters } from "@/lib/capitalize-first-letter";
+import { capitalizeFirstLetters } from "@/lib/capitalize-first-letter-util";
 
 export type BlogCardProps = WordpressPostType;
 
@@ -31,7 +31,12 @@ export const BlogCard: React.FC<BlogCardProps> = ({ id, categories, content, dat
          </CardHeader>
 
          <CardContent className="!pt-0 space-y-4">
-            <Link to={routeConstants.blogDetails.replace(":id", String(id))}>
+            <Link to={{
+               pathname: routeConstants.blogDetails.replace(":id", String(id)),
+               search: new URLSearchParams({
+                  title: title.split(" ").join("-")
+               }).toString()
+            }}>
                <Typography
                   variant="h3"
                   className="underline-offset-2 hover:underline"

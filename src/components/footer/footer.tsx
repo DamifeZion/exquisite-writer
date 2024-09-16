@@ -93,17 +93,32 @@ export const Footer = () => {
                   </div>
 
                   <div id="socials" className="min-[451px]:ml-auto space-x-6 [&_button]:size-fit *:[&_button]:size-[30px] *:[&_button]:p-1.5 *:[&_button]:text-primary-foreground *:[&_button:hover]:text-primary">
-                     <Button size="icon" variant="ghost">
-                        <FaFacebookF />
-                     </Button>
+                     <a target="_blank" href="https://www.facebook.com/exquisitewriter">
+                        <Button
+                           size="icon"
+                           variant="ghost"
+                        >
+                           <FaFacebookF />
+                        </Button>
+                     </a>
 
-                     <Button size="icon" variant="ghost">
-                        <FaTwitter />
-                     </Button>
+                     <a target="_blank" href="https://x.com/exquisitewrite">
+                        <Button
+                           size="icon"
+                           variant="ghost"
+                        >
+                           <FaTwitter />
+                        </Button>
+                     </a>
 
-                     <Button size="icon" variant="ghost">
-                        <FaInstagram strokeWidth={2} />
-                     </Button>
+                     <a target="_blank" href="https://www.instagram.com/exquisite.writers/">
+                        <Button
+                           size="icon"
+                           variant="ghost"
+                        >
+                           <FaInstagram strokeWidth={2} />
+                        </Button>
+                     </a>
                   </div>
                </div>
             </div>
