@@ -61,6 +61,7 @@ export const HeroSection = () => [
 
             <img
                src="/hero.svg"
+               loading="lazy"
                className="w-full h-auto max-md:max-w-sm max-md:mt-10"
             />
          </div>

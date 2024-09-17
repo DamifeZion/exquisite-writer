@@ -10,7 +10,7 @@ import {
 } from "@/constants/contact-const";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
-export const COntactBody = () => {
+export const ContactBody = () => {
    return (
       <div className="container py-20 lg:py-40">
          <Card className="bg-[#ECECEC] border-none">

@@ -17,7 +17,11 @@ import AutoPlay from "embla-carousel-autoplay";
 export const Testimonial = () => {
    return (
       <ScrollSpySection className="relative py-20 lg:py-28">
-         <img src="/grid-bg.svg" className="absolute top-0 left-0 size-full" />
+         <img
+            src="/grid-bg.svg"
+            loading="lazy"
+            className="absolute top-0 left-0 size-full"
+         />
 
          <Card className="container relative z-10 !pb-0 border-none rounded-[24px] bg-[#9104FF] overflow-auto lg:rounded-[40px]">
             <CardContent className="relative flex flex-col justify-center max-lg:items-center pb-0 min-h-[650px] max-sm:px-0 md:gap-5 md:flex-row lg:gap-10 lg:justify-between">

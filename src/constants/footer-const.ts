@@ -2,19 +2,19 @@ import { routeConstants } from "./route-const";
 
 export const SERVICES = [
    {
-      label: "Email Marketing",
+      label: "Blog & Article Writing",
       href: routeConstants.getStarted,
    },
    {
-      label: "Campaigns",
+      label: "Editing & Proofreading",
       href: routeConstants.getStarted,
    },
    {
-      label: "Branding",
+      label: "Custom Content Creation",
       href: routeConstants.getStarted,
    },
    {
-      label: "Offline",
+      label: "Ebook Creation",
       href: routeConstants.getStarted,
    },
 ];

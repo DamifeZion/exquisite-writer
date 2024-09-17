@@ -33,9 +33,9 @@ export const Footer = () => {
                   </Link>
                </div>
 
-               <div className="grid gap-x-16 grid-cols-2 min-[400px]:grid-cols-3 sm:max-w-sm sm:grid-cols-3 [&_li]:!w-fit">
+               <div className="grid gap-x-16 grid-cols-2 min-[400px]:grid-cols-3 sm:grid-cols-4 [&_li]:!w-fit">
                   {/* SERVICES */}
-                  <ul>
+                  <ul className="col-span-2">
                      <li className="mb-3 text-[hsl(345,100%,91%)]">Services</li>
 
                      {SERVICES.map((data, index) => (

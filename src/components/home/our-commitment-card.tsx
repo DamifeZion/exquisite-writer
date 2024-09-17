@@ -13,7 +13,7 @@ export const OurCommitmentCard: React.FC<CommitmentCardProps> = ({
    return (
       <Card className="flex flex-col items-center justify-center border-none shadow-[0_0_20px_rgba(0,0,0,0.07)] rounded-2xl">
          <CardHeader className="items-center gap-3 pb-2">
-            <img src="/safe.svg" className="size-8" />
+            <img src="/safe.svg" loading="lazy" className="size-8" />
 
             <CardTitle className="leading-tight text-center max-sm:text-xl">
                {title}

@@ -11,6 +11,7 @@ export const OurCommitment = () => {
          className="relative  py-24 bg-[hsla(0,0%,98%)] pb-20 min-[550px]:pb-64 lg:pt-40"
       >
          <img
+            loading="lazy"
             src="/grid-bg.svg"
             className="absolute top-0 left-0 w-full h-[90%]"
          />

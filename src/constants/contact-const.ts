@@ -1,6 +1,6 @@
+import { RiInstagramLine } from "react-icons/ri"; 
 import { FaXTwitter } from "react-icons/fa6";
 import { FiFacebook } from "react-icons/fi";
-import { SlSocialLinkedin } from "react-icons/sl";
 
 export const CONTACT_DETAILS = {
    email: "theexquisitewrites@gmail.com",
@@ -12,16 +12,16 @@ export const CONTACT_SOCIAL_LINK = [
    {
       title: "Twitter",
       icon: FaXTwitter,
-      href: "twitter",
+      href: "https://x.com/exquisitewrite",
    },
    {
-      title: "LinkedIn",
-      icon: SlSocialLinkedin,
-      href: "Linkedin",
+      title: "Instagram",
+      icon: RiInstagramLine,
+      href: "https://www.instagram.com/exquisite.writers/",
    },
    {
-      title: "Facebookr",
+      title: "Facebook",
       icon: FiFacebook,
-      href: "Facebook",
+      href: "https://www.facebook.com/exquisitewriter",
    },
 ];

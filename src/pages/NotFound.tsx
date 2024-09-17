@@ -33,6 +33,7 @@ const NotFound = () => {
             </div>
 
             <img
+               loading="lazy"
                src="/404.svg"
                className="object-cover object-left w-full max-w-3xl py-10"
             />

@@ -50,6 +50,7 @@ export const BlogLists = () => {
          </ScrollSpySection>
 
          <img
+            loading="lazy"
             src="/line-curve.svg"
             className="absolute left-0 w-full h-auto bottom-36 -z-10 opacity-90 [transform:scaleY(-1)]"
          />

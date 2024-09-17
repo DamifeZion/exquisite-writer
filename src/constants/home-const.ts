@@ -63,7 +63,7 @@ export const THE_TEAM: Array<TeamCardProps> = [
    },
    {
       src: "/team-4.svg",
-      name: "Adegboye Opeyemi",
+      name: "Ola Opeyemi",
       position: "Wordsmith",
       description:
          "I enjoy weaving words together and finding inspiration in the little things.",
@@ -101,9 +101,68 @@ export const TESTIMONIALS: Array<TestimonialCardProps> = [
    {
       ratingNo: "5.0",
       rating: "5",
+      date: "July 31, 2024",
+      time: "4:03 PM",
+      packagPlan: "Top - 10000 words",
+      type: "Crafts, Hobbies, & Home",
+      description: "Did a great writing job. Very happy with his work.",
+   },
+   {
+      ratingNo: "5.0",
+      rating: "5",
+      date: "August 11, 2024",
+      time: "7:20 AM",
+      packagPlan: "Premium - 10000 words",
+      type: "Self-Help",
+      description:
+         "I had EW work on a couple of projects for me and he has always done a wonderful job!",
+   },
+   {
+      ratingNo: "5.0",
+      rating: "5",
+      date: "August 24, 2024",
+      time: "8:35 AM",
+      packagPlan: "Finance - 30000 words",
+      type: "Business & Money",
+      description:
+         "Exquisite Writer met the deadline and delivered an outstanding manuscript. I will definitely have him write of my books. Thank tou so much.",
+   },
+   {
+      ratingNo: "5.0",
+      rating: "5",
+      date: "July 24, 2024",
+      time: "4:24 AM",
+      packagPlan: "Premium - 20000 words",
+      type: "Health & Fitness",
+      description:
+         "Exquisite Writer was great to work with, very prompt in his response to my feedback and questions. I appreciate his guidance through the process, especially with this being my first book to complete! I also appreciate the close attention to detail and quicknessto confirm objectives. Thanks Exquisite!",
+   },
+   {
+      ratingNo: "5.0",
+      rating: "5",
+      date: "July 01, 2024",
+      time: "2:26 AM",
+      packagPlan: "Urban - 35000 words",
+      type: "Sports & Outdoors",
+      description:
+         "Exquisite Writer was so easy to work with and the end product was exactly what I was looking for! It was so amazing to see the thoughts and words I shared formed and perfected into exactly what I was hoping for in my book!",
+   },
+   {
+      ratingNo: "4.8",
+      rating: 4.8,
+      date: "July 12, 2024",
+      time: "7:04 AM",
+      packagPlan: "Urban - 30000 words",
+      type: "Self-Help",
+      description:
+         "Exquisite Writer did an excellent job, diligently following the given recommendations. He respected the deadlines. A real professional.",
+   },
+   {
+      ratingNo: "5.0",
+      rating: "5",
       date: "July 05, 2024",
-      time: "5:49 AM",
-      packagPlan: "Urban - 3000 words",
+      time: "2:26 AM",
+      packagPlan: "Urban - 30000 words",
       type: "Self-Help",
       description:
          "The Exquisite Writer was very professional, a fantastic communicator, and a pleasure to work with. He followed the book outline he was given and stuck to it. He was extremely efficient and time-concious.",
@@ -111,22 +170,12 @@ export const TESTIMONIALS: Array<TestimonialCardProps> = [
    {
       ratingNo: "5.0",
       rating: "5",
-      date: "July 05, 2024",
-      time: "5:49 AM",
-      packagPlan: "Urban - 3000 words",
+      date: "July 30, 2024",
+      time: "1:45 AM",
+      packagPlan: "Premium - 25000 words",
       type: "Self-Help",
       description:
-         "The Exquisite Writer was very professional, a fantastic communicator, and a pleasure to work with. He followed the book outline he was given and stuck to it. He was extremely efficient and time-concious.",
-   },
-   {
-      ratingNo: "5.0",
-      rating: "5",
-      date: "July 05, 2024",
-      time: "5:49 AM",
-      packagPlan: "Urban - 3000 words",
-      type: "Self-Help",
-      description:
-         "The Exquisite Writer was very professional, a fantastic communicator, and a pleasure to work with. He followed the book outline he was given and stuck to it. He was extremely efficient and time-concious.",
+         "I have nothing but praise for Exquisite Writer! If he would allow it, I would love to have him write dor me again!",
    },
 ];
 
@@ -200,7 +249,7 @@ export const OUR_COMMITMENTS: Array<CommitmentCardProps> = [
          "Here, our skilled writers start crafting the content, following your specifications and the strategic plan laid out during the design phase.",
    },
    {
-      title: "Define",
+      title: "Deploy",
       description:
          "The content goes through a rigorous editing process where we ensure adherence to your guidelines, followed by proofreading for quality assurance.",
    },

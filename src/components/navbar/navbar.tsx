@@ -19,7 +19,12 @@ type LogoProps = {
 
 const Logo: React.FC<LogoProps> = ({ className }) => {
    return (
-      <img src="/logo.svg" alt="Logo" className={cn("w-14 h-14", className)} />
+      <img
+         src="/logo.svg"
+         alt="Logo"
+         loading="lazy"
+         className={cn("w-14 h-14", className)}
+      />
    );
 };
 

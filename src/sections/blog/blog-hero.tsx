@@ -10,6 +10,7 @@ export const BlogHero = () => {
       >
          <img
             id="bg-img"
+            loading="lazy"
             src="/hero-bg.svg"
             className="absolute top-0 left-0 object-cover w-full h-full -z-10"
          />

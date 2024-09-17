@@ -1,3 +1,4 @@
+import { BsStarHalf } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import {
@@ -12,7 +13,7 @@ import Typography from "../ui/typography";
 
 export type TestimonialCardProps = {
    ratingNo: string;
-   rating: "1" | "2" | "3" | "4" | "5";
+   rating: "1" | "2" | "3" | "4" | "5" | number;
    date: string;
    time: string;
    packagPlan: string;
@@ -30,7 +31,12 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
    description,
 }) => {
    const totalRating: number = 5;
-   const selectedRating = parseInt(rating);
+   const selectedRating = parseFloat(rating.toString());
+
+   const fullStars = Math.floor(selectedRating);
+   const hasHalfStar = selectedRating % 1 !== 0;
+
+   // <BsStarHalf />
 
    return (
       <Card>
@@ -38,7 +44,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
             <div className="flex items-center gap-2">
                <CardTitle className="font-semibold">{ratingNo}</CardTitle>
 
-               {/* NOTE: If there is rating, we want to color 2 and leave the rest muted and so */}
+               {/* NOTE: If there is rating, we want to color 2 and leave the rest muted and so
                <div className="flex items-center gap-1 mt-auto *:size-5 md:*:size-6 lg:*:size-7">
                   {rating &&
                      Array.from({ length: selectedRating }).map((_, index) => (
@@ -54,6 +60,28 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
                            />
                         )
                      )}
+               </div> */}
+
+               {/* Render stars based on the rating */}
+               <div className="flex items-center gap-1 mt-auto *:size-5 md:*:size-6 lg:*:size-7">
+                  {/* Render full stars */}
+                  {Array.from({ length: fullStars }).map((_, index) => (
+                     <AiFillStar key={index} className="text-[#ffcd59]" />
+                  ))}
+
+                  {/* Render half star if necessary */}
+                  {hasHalfStar && <BsStarHalf className="text-[#ffcd59] !size-4 md:!size-5 lg:!size-[22px]" />}
+
+                  {/* Render remaining outline stars */}
+                  {Array.from({ length: totalRating - fullStars - (hasHalfStar ? 1 : 0) }).map(
+                     (_, index) => (
+                        <AiOutlineStar
+                           key={index}
+                           className="text-muted-foreground"
+                        />
+                     )
+                  )}
+
                </div>
             </div>
 

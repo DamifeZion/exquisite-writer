@@ -49,6 +49,7 @@ const BlogDetails = () => {
             </Typography>
 
             <img
+               loading="lazy"
                src={
                   postDetails?.featuredImage || "https://placehold.co/600x400"
                }
