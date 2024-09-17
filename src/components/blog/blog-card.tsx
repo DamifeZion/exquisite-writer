@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader } from "../ui/card"
 import Typography from "../ui/typography";
 import { routeConstants } from "@/constants/route-const";
 import { WordpressPostType } from "@/hooks/use-wordpress";
-import { capitalizeFirstLetters } from "@/lib/capitalize-first-letter-util";
+import { capitalizeFirstLetters } from "@/helper/capitalize-first-letter";
 
 export type BlogCardProps = WordpressPostType;
 

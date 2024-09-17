@@ -12,7 +12,8 @@ import {
 import {
    calculatePriceByRange,
    getCategoryBasePrice,
-} from "@/lib/pricing-util";
+   renderWordCount
+} from "@/helper/pricing";
 
 export const useHome = () => {
    const formSchema = z.object({
@@ -50,7 +51,10 @@ export const useHome = () => {
       setValue("wordCount", WORD_COUNT[0]);
 
       if (contentType === "website content") {
-         setValue("wordCount", 1);
+         setValue("wordCount", "1");
+      }
+      else if (contentType === "product description") {
+         setValue("wordCount", renderWordCount(contentType)[0]);
       }
    }, [setValue, contentType]);
 

@@ -248,10 +248,17 @@ export const WORD_COUNT: Array<string> = [
 export const DESCRIPTION_COUNT: Array<string> = [
    "1- 100",
    "101 -200",
-   "201 - 501",
+   "201 - 300",
+   "301 - 400",
+   "401 - 500",
+   "501 - 600",
+   "601 - 700",
+   "701 - 800",
+   "801 - 900",
+   "901 - 1000",
 ];
 
-// NOTE: The amount below is the base amount, but is subject to change based on max words selected in "Use - Home"
+// NOTE: The amount below is the base amount, but is subject to change based on max words selected in "use-home" hook.
 export const PLANS: Array<PricingCardProps> = [
    {
       planName: "Starter",
@@ -261,7 +268,7 @@ export const PLANS: Array<PricingCardProps> = [
          "Writers with 0-2 years experience",
          "Ideal for SEO Content",
          "Preferred for Blogs and Product Descriptions",
-         "Two rounds of revisions",
+         "One round of revision",
          "Limited research",
          "Turnaround time of 5 business days",
       ],
@@ -271,27 +278,27 @@ export const PLANS: Array<PricingCardProps> = [
       planName: "Professional",
       amount: 88,
       features: [
-         "Content proofreading",
-         "Writers with 0-2 years experience",
-         "Ideal for SEO Content",
-         "Preferred for Blogs and Product Descriptions",
-         "Two rounds of revisions",
-         "Limited research",
-         "Turnaround time of 5 business days",
+         "In-depth content editing",
+         "Writers with 2-5 years of experience",
+         "SEO optimization included",
+         "Suitable for all types of content",
+         "Three rounds of revisions",
+         "Moderate research",
+         "Turnaround time of 3-4 business days",
       ],
    },
 
    {
       planName: "Elite",
-      amount: 158,
+      amount: 0,
       features: [
-         "Content proofreading",
-         "Writers with 0-2 years experience",
-         "Ideal for SEO Content",
-         "Preferred for Blogs and Product Descriptions",
-         "Two rounds of revisions",
-         "Limited research",
-         "Turnaround time of 5 business days",
+         "Comprehensive content review and editing",
+         "Writers with 5+ years of experience",
+         "Advanced SEO techniques",
+         "Custom-tailored content for brand voice and audience",
+         "Unlimited revisions",
+         "Extensive research",
+         "Turnaround time of 1-2 business days",
       ],
    },
 ];

@@ -7,8 +7,8 @@ import Typography from "@/components/ui/typography"
 import { CONTENT_TYPES, WORD_COUNT } from "@/constants/home-const"
 import { routeConstants } from "@/constants/route-const"
 import { useHome } from "@/hooks/use-home"
-import { capitalizeFirstLetters } from "@/lib/capitalize-first-letter-util";
-import { getContentTypeRangeLabel, renderWordCount } from "@/lib/pricing-util"
+import { capitalizeFirstLetters } from "@/helper/capitalize-first-letter";
+import { getContentTypeRangeLabel, renderWordCount } from "@/helper/pricing"
 import { cn } from "@/lib/utils"
 
 export const Pricing = () => {

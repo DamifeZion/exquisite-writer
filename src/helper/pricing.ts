@@ -47,7 +47,7 @@ export const getCategoryBasePrice = (
    if (contentType === "articles" || contentType === "blog") {
       basePrice = resoolvePriceByPlan(plan, 12, 18, 20);
    } else if (contentType === "website content") {
-      basePrice = resoolvePriceByPlan(plan, 15, 25, 25);
+      basePrice = resoolvePriceByPlan(plan, 15, 25, 35);
    } else if (contentType === "product description") {
       basePrice = resoolvePriceByPlan(plan, 4, 8, 12);
    } else if (contentType === "ebooks") {
