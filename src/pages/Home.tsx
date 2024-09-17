@@ -7,9 +7,7 @@ import { Pricing } from "@/sections/home/pricing";
 import { Testimonial } from "@/sections/home/testimonial";
 import { WhatWeDoSection } from "@/sections/home/what-we-do";
 
-
 const Home = () => {
-
    return (
       <div>
          <HeroSection />
@@ -21,8 +19,7 @@ const Home = () => {
          <Pricing />
          <FrequentlyAskedQuestions />
       </div>
-   )
-}
-
+   );
+};
 
 export default Home;

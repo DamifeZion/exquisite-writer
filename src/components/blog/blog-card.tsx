@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { Badge } from "../ui/badge"
-import { Card, CardContent, CardHeader } from "../ui/card"
+import { Badge } from "../ui/badge";
+import { Card, CardContent, CardHeader } from "../ui/card";
 import Typography from "../ui/typography";
 import { routeConstants } from "@/constants/route-const";
 import { WordpressPostType } from "@/hooks/use-wordpress";
@@ -8,8 +8,14 @@ import { capitalizeFirstLetters } from "@/helper/capitalize-first-letter";
 
 export type BlogCardProps = WordpressPostType;
 
-
-export const BlogCard: React.FC<BlogCardProps> = ({ id, categories, content, date, featuredImage, title }) => {
+export const BlogCard: React.FC<BlogCardProps> = ({
+   id,
+   categories,
+   content,
+   date,
+   featuredImage,
+   title,
+}) => {
    return (
       <Card className="*:p-4">
          <CardHeader className="gap-4">
@@ -31,12 +37,17 @@ export const BlogCard: React.FC<BlogCardProps> = ({ id, categories, content, dat
          </CardHeader>
 
          <CardContent className="!pt-0 space-y-4">
-            <Link to={{
-               pathname: routeConstants.blogDetails.replace(":id", String(id)),
-               search: new URLSearchParams({
-                  title: title.split(" ").join("-")
-               }).toString()
-            }}>
+            <Link
+               to={{
+                  pathname: routeConstants.blogDetails.replace(
+                     ":id",
+                     String(id)
+                  ),
+                  search: new URLSearchParams({
+                     title: title.split(" ").join("-"),
+                  }).toString(),
+               }}
+            >
                <Typography
                   variant="h3"
                   className="underline-offset-2 hover:underline"
@@ -52,5 +63,5 @@ export const BlogCard: React.FC<BlogCardProps> = ({ id, categories, content, dat
             />
          </CardContent>
       </Card>
-   )
-}
+   );
+};

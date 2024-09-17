@@ -1,22 +1,25 @@
 import { BiPhone } from "react-icons/bi";
 import { MdOutlineEmail } from "react-icons/md";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import Typography from "@/components/ui/typography"
-import { Button } from "@/components/ui/button";   
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Typography from "@/components/ui/typography";
+import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact/contact-form";
-import { CONTACT_DETAILS, CONTACT_SOCIAL_LINK } from "@/constants/contact-const";
+import {
+   CONTACT_DETAILS,
+   CONTACT_SOCIAL_LINK,
+} from "@/constants/contact-const";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-
 
 export const COntactBody = () => {
    return (
       <div className="container py-20 lg:py-40">
          <Card className="bg-[#ECECEC] border-none">
             <CardContent className="flex flex-col justify-between gap-10 p-4 md:flex-row md:py-16 md:px-8">
-               
                <div className="max-w-xs lg:max-w-[500px] xl:max-w-[580px] flex flex-col gap-10">
                   <Typography className="text-xl md:text-2xl text-pretty md:font-semibold">
-                     We can't do without our esteemed client, and we look forward to delivering the best service to you. Kindly contact us
+                     We can't do without our esteemed client, and we look
+                     forward to delivering the best service to you. Kindly
+                     contact us
                   </Typography>
 
                   <div id="contacts" className="mt-auto space-y-4 ">
@@ -25,7 +28,11 @@ export const COntactBody = () => {
                            <MdOutlineEmail size={24} />
                         </span>
 
-                        <Typography variant="p" affects="removePMargin" className="text-lg">
+                        <Typography
+                           variant="p"
+                           affects="removePMargin"
+                           className="text-lg"
+                        >
                            <a href={`mailto:${CONTACT_DETAILS.email}`}>
                               {CONTACT_DETAILS.email}
                            </a>
@@ -37,7 +44,11 @@ export const COntactBody = () => {
                            <BiPhone size={24} />
                         </span>
 
-                        <Typography variant="p" affects="removePMargin" className="text-lg">
+                        <Typography
+                           variant="p"
+                           affects="removePMargin"
+                           className="text-lg"
+                        >
                            <a href={`tel:${CONTACT_DETAILS.phone}`}>
                               {CONTACT_DETAILS.phone}
                            </a>
@@ -49,15 +60,20 @@ export const COntactBody = () => {
                            <HiOutlineLocationMarker size={24} />
                         </span>
 
-                        <Typography variant="p" affects="removePMargin" className="text-lg">
-                           <a>
-                              {CONTACT_DETAILS.address}
-                           </a>
+                        <Typography
+                           variant="p"
+                           affects="removePMargin"
+                           className="text-lg"
+                        >
+                           <a>{CONTACT_DETAILS.address}</a>
                         </Typography>
                      </div>
                   </div>
 
-                  <div id="socials" className="mt-auto flex items-center gap-4 *:size-fit *:p-3">
+                  <div
+                     id="socials"
+                     className="mt-auto flex items-center gap-4 *:size-fit *:p-3"
+                  >
                      {CONTACT_SOCIAL_LINK.map((data, index) => (
                         <a key={index} href={data.href}>
                            <Button size="icon" className="rounded-full">
@@ -67,7 +83,6 @@ export const COntactBody = () => {
                      ))}
                   </div>
                </div>
-
 
                <Card className="flex-grow max-w-[550px] shadow-none border-none max-md:*:px-3">
                   <CardHeader>
@@ -83,5 +98,5 @@ export const COntactBody = () => {
             </CardContent>
          </Card>
       </div>
-   )
-}
+   );
+};

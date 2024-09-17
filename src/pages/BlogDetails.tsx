@@ -1,13 +1,11 @@
-import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
-import { Link } from "@/components/ui/link"
-import { Skeleton } from "@/components/ui/skeleton"
-import Typography from "@/components/ui/typography"
-import { routeConstants } from "@/constants/route-const"
-import { useWordpress } from "@/hooks/use-wordpress"
-import { ChevronLeft } from "lucide-react"
-import moment from "moment"
-
-
+import { ScrollSpySection } from "@/components/navbar/scroll-spy-section";
+import { Link } from "@/components/ui/link";
+import { Skeleton } from "@/components/ui/skeleton";
+import Typography from "@/components/ui/typography";
+import { routeConstants } from "@/constants/route-const";
+import { useWordpress } from "@/hooks/use-wordpress";
+import { ChevronLeft } from "lucide-react";
+import moment from "moment";
 
 const BlogDetails = () => {
    const { postDetails, loading } = useWordpress();
@@ -20,24 +18,16 @@ const BlogDetails = () => {
             </Link>
 
             <div className="flex-grow">
-               <Skeleton
-                  className="h-6 rounded-full w-[170px]"
-               />
+               <Skeleton className="h-6 rounded-full w-[170px]" />
 
-               <Skeleton
-                  className="w-full mt-2 rounded-full h-14"
-               />
+               <Skeleton className="w-full mt-2 rounded-full h-14" />
 
-               <Skeleton
-                  className="mt-6 rounded-xl w-full h-[393px]"
-               />
+               <Skeleton className="mt-6 rounded-xl w-full h-[393px]" />
 
-               <Skeleton
-                  className="mt-10 w-full h-[600px]"
-               />
+               <Skeleton className="mt-10 w-full h-[600px]" />
             </div>
          </div>
-      )
+      );
    }
 
    return (
@@ -47,8 +37,11 @@ const BlogDetails = () => {
          </Link>
 
          <div>
-            <Typography variant="p" className="text-sm font text-muted-foreground">
-               Published on {moment(postDetails?.date).format('MMMM D, YYYY')}
+            <Typography
+               variant="p"
+               className="text-sm font text-muted-foreground"
+            >
+               Published on {moment(postDetails?.date).format("MMMM D, YYYY")}
             </Typography>
 
             <Typography variant="h1" className="mt-1.5 !leading-tight">
@@ -56,19 +49,23 @@ const BlogDetails = () => {
             </Typography>
 
             <img
-               src={postDetails?.featuredImage || "https://placehold.co/600x400"}
+               src={
+                  postDetails?.featuredImage || "https://placehold.co/600x400"
+               }
                alt={postDetails?.title}
                className="w-full max-h-[393px] object-cover mt-6 rounded-xl "
             />
 
             <div
-               dangerouslySetInnerHTML={{ __html: String(postDetails?.content) }}
+               dangerouslySetInnerHTML={{
+                  __html: String(postDetails?.content),
+               }}
                id="wordpress-contents"
                className="space-y-6"
             />
          </div>
       </ScrollSpySection>
-   )
-}
+   );
+};
 
 export default BlogDetails;

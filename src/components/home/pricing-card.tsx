@@ -1,20 +1,30 @@
 import { Button } from "../ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card"
-import Typography from "../ui/typography"
+import {
+   Card,
+   CardContent,
+   CardFooter,
+   CardHeader,
+   CardTitle,
+} from "../ui/card";
+import Typography from "../ui/typography";
 
 export type PricingCardProps = {
    planName: "Starter" | "Professional" | "Elite";
    amount: number;
    features: Array<string>;
-   onClick?: () => void
-}
+   onClick?: () => void;
+};
 
-export const PricingCard: React.FC<PricingCardProps> = ({ planName, amount, features, onClick }) => {
-
+export const PricingCard: React.FC<PricingCardProps> = ({
+   planName,
+   amount,
+   features,
+   onClick,
+}) => {
    return (
       <Card className="border-none rounded-3xl">
          <CardHeader className="pb-2">
-            <Typography variant="h4" className="text-[15px] font-semibold" >
+            <Typography variant="h4" className="text-[15px] font-semibold">
                {planName}
             </Typography>
 
@@ -25,11 +35,12 @@ export const PricingCard: React.FC<PricingCardProps> = ({ planName, amount, feat
 
          <CardContent>
             {features.map((data, index) => (
-               <li key={data+index} className="grid grid-cols-[auto_1fr] gap-0.5">
-                  <span className="mt-[9px] sm:mt-[12px]">
-                     ✅
-                  </span>
-                  
+               <li
+                  key={data + index}
+                  className="grid grid-cols-[auto_1fr] gap-0.5"
+               >
+                  <span className="mt-[9px] sm:mt-[12px]">✅</span>
+
                   <Typography
                      variant="p"
                      affects="removePMargin"
@@ -40,7 +51,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ planName, amount, feat
                </li>
             ))}
          </CardContent>
-         
+
          <CardFooter>
             <Button
                type="button"
@@ -51,5 +62,5 @@ export const PricingCard: React.FC<PricingCardProps> = ({ planName, amount, feat
             </Button>
          </CardFooter>
       </Card>
-   )
-}
+   );
+};

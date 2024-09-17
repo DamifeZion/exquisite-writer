@@ -1,11 +1,11 @@
-import { cn } from "@/lib/utils"
-import { cva, type VariantProps } from "class-variance-authority"
-import React from "react"
+import { cn } from "@/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
+import React from "react";
 
 export const typographyVariants = cva("text-xl", {
    variants: {
       variant: {
-         '': "",
+         "": "",
          h1: "scroll-m-20 text-[28px] leading-none font-extrabold min-[400px]:text-4xl min-[400px]:tracking-tight lg:text-5xl",
          h2: "scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
          h3: "scroll-m-20 text-2xl font-semibold tracking-tight",
@@ -29,24 +29,24 @@ export const typographyVariants = cva("text-xl", {
       variant: "",
       affects: "default",
    },
-})
+});
 
 export interface TypographyProps
    extends React.HTMLAttributes<HTMLHeadingElement>,
-   VariantProps<typeof typographyVariants> { }
+      VariantProps<typeof typographyVariants> {}
 
 const Typography = React.forwardRef<HTMLHeadingElement, TypographyProps>(
    ({ className, variant, affects, ...props }, ref) => {
-      const Comp = variant || "p"
+      const Comp = variant || "p";
       return (
          <Comp
             className={cn(typographyVariants({ variant, affects, className }))}
             ref={ref}
             {...props}
          />
-      )
-   },
-)
-Typography.displayName = "H1"
+      );
+   }
+);
+Typography.displayName = "H1";
 
-export default Typography
+export default Typography;

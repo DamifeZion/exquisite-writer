@@ -1,35 +1,33 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import axios from "axios"
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
-import { z } from "zod"
-
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 
 export const useContactForm = () => {
    const formSchema = z.object({
       fullname: z.string().min(2, {
-         message: "Please enter your full name"
+         message: "Please enter your full name",
       }),
       email: z.string().email({
-         message: "Please enter a valid email address"
+         message: "Please enter a valid email address",
       }),
       message: z.string().min(2, {
-         message: "Please enter a message"
-      })
-   })
+         message: "Please enter a message",
+      }),
+   });
 
    const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
          fullname: "",
          email: "",
-         message: ""
-      }
-   })
+         message: "",
+      },
+   });
 
    const [isLoading, setIsLoading] = useState(false);
-
 
    const onSubmit = async (values: z.infer<typeof formSchema>) => {
       // EmailJS Configuration
@@ -41,14 +39,14 @@ export const useContactForm = () => {
          to_name: "Exquisite Writing Service",
          from_name: values.fullname,
          from_email: values.email,
-         message: values.message
+         message: values.message,
       };
 
       const data = {
          service_id,
          template_id,
          user_id: PUBLIC_KEY,
-         template_params
+         template_params,
       };
 
       // Correct EmailJS API endpoint
@@ -60,8 +58,8 @@ export const useContactForm = () => {
 
          toast.success("Successful! A writer will reach out to you soon.");
          setIsLoading(false);
-         
-         form.reset()
+
+         form.reset();
       } catch (err: unknown) {
          setIsLoading(false);
          toast.error("Failed to send email. Please try again.");
@@ -71,6 +69,6 @@ export const useContactForm = () => {
    return {
       form,
       onSubmit,
-      isLoading
-   }
-}
+      isLoading,
+   };
+};

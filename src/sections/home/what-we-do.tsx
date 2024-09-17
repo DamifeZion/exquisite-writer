@@ -1,19 +1,22 @@
-import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
-import Typography from "@/components/ui/typography"
-import { routeConstants } from "@/constants/route-const"
-import { WhatWeDoCard } from "@/components/home/what-we-do-card"
-import { WHAT_WE_DO } from "@/constants/home-const"
-import { cn } from "@/lib/utils"
-import { Link } from "@/components/ui/link"
-
+import { ScrollSpySection } from "@/components/navbar/scroll-spy-section";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import Typography from "@/components/ui/typography";
+import { routeConstants } from "@/constants/route-const";
+import { WhatWeDoCard } from "@/components/home/what-we-do-card";
+import { WHAT_WE_DO } from "@/constants/home-const";
+import { cn } from "@/lib/utils";
+import { Link } from "@/components/ui/link";
 
 type GetStartedButtonProps = React.HTMLAttributes<HTMLElement> & {
    deviceType: "mobile" | "desktop";
-}
+};
 
-const GetStartedButton: React.FC<GetStartedButtonProps> = ({ deviceType, className, ...props }) => {
+const GetStartedButton: React.FC<GetStartedButtonProps> = ({
+   deviceType,
+   className,
+   ...props
+}) => {
    return (
       <Link
          to={routeConstants.pricing}
@@ -22,19 +25,22 @@ const GetStartedButton: React.FC<GetStartedButtonProps> = ({ deviceType, classNa
             {
                "lg:hidden mt": deviceType === "mobile",
                "max-lg:hidden mt-16": deviceType === "desktop",
-            }, className
+            },
+            className
          )}
          {...props}
       >
          Get Started
       </Link>
-   )
-}
+   );
+};
 
 export const WhatWeDoSection = () => {
-
    return (
-      <ScrollSpySection route={routeConstants.whatWeDo} className="pb-20 pt-28 lg:container lg:pb-40">
+      <ScrollSpySection
+         route={routeConstants.whatWeDo}
+         className="pb-20 pt-28 lg:container lg:pb-40"
+      >
          <Card className="bg-[#F5650A] rounded-[20px] pt-10 max-lg:pb-20 lg:rounded-[40px]">
             <CardContent className="flex flex-col p-4 gap-x-20 md:p-8 lg:flex-row lg:items-center">
                <div className="flex flex-col max-w-xl max-lg:mx-auto max-lg:text-center lg:max-w-xsI">
@@ -42,8 +48,13 @@ export const WhatWeDoSection = () => {
                      What We Do
                   </Badge>
 
-                  <Typography variant="p" className="max-w-[550px] mt-5 text-primary-foreground">
-                     At Exquisite Writers, we offer a comprehensive suite of services designed to support and elevate your writing journey.
+                  <Typography
+                     variant="p"
+                     className="max-w-[550px] mt-5 text-primary-foreground"
+                  >
+                     At Exquisite Writers, we offer a comprehensive suite of
+                     services designed to support and elevate your writing
+                     journey.
                   </Typography>
 
                   <GetStartedButton deviceType="desktop" />
@@ -51,16 +62,16 @@ export const WhatWeDoSection = () => {
 
                <div className="grid flex-grow gap-6 max-lg:mt-16 min-[700px]:grid-cols-2">
                   {WHAT_WE_DO.map((data, index) => (
-                     <WhatWeDoCard
-                        key={index}
-                        {...data}
-                     />
+                     <WhatWeDoCard key={index} {...data} />
                   ))}
                </div>
 
-               <GetStartedButton deviceType="mobile" className="max-lg:mx-auto max-lg:mt-14" />
+               <GetStartedButton
+                  deviceType="mobile"
+                  className="max-lg:mx-auto max-lg:mt-14"
+               />
             </CardContent>
          </Card>
       </ScrollSpySection>
-   )
-}
+   );
+};

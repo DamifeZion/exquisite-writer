@@ -12,7 +12,7 @@ import {
 import {
    calculatePriceByRange,
    getCategoryBasePrice,
-   renderWordCount
+   renderWordCount,
 } from "@/helper/pricing";
 
 export const useHome = () => {
@@ -52,8 +52,7 @@ export const useHome = () => {
 
       if (contentType === "website content") {
          setValue("wordCount", "1");
-      }
-      else if (contentType === "product description") {
+      } else if (contentType === "product description") {
          setValue("wordCount", renderWordCount(contentType)[0]);
       }
    }, [setValue, contentType]);

@@ -13,9 +13,8 @@ export const useNavbar = () => {
    const dispatch = useDispatch();
 
    useEffect(() => {
-      dispatch(setActiveMenu(location.pathname + location.hash))
-   })
-
+      dispatch(setActiveMenu(location.pathname + location.hash));
+   });
 
    //NOTE: Update the active menu  onClick and based on react router
    useEffect(() => {

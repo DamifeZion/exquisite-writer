@@ -1,14 +1,18 @@
-import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card"
+import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
 
 export type TeamCardProps = React.HTMLAttributes<HTMLDivElement> & {
    src: string;
    name: string;
    position: string;
    description: string;
-}
+};
 
-export const TeamCard: React.FC<TeamCardProps> = ({ src, name, position, description }) => {
-
+export const TeamCard: React.FC<TeamCardProps> = ({
+   src,
+   name,
+   position,
+   description,
+}) => {
    return (
       <Card className="border shadow-none bg-[#F2F2F2]">
          <CardHeader className="items-center">
@@ -19,13 +23,12 @@ export const TeamCard: React.FC<TeamCardProps> = ({ src, name, position, descrip
             />
 
             <CardTitle className="text-xl leading-none !mt-4">
-               {name} <br /> <span className="text-sm md:text-md">({position})</span>
+               {name} <br />{" "}
+               <span className="text-sm md:text-md">({position})</span>
             </CardTitle>
 
-            <CardDescription>
-               {description}
-            </CardDescription>
+            <CardDescription>{description}</CardDescription>
          </CardHeader>
       </Card>
-   )
-}
+   );
+};

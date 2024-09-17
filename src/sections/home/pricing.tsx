@@ -1,29 +1,44 @@
-import { PricingCard } from "@/components/home/pricing-card"
-import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import Typography from "@/components/ui/typography"
-import { CONTENT_TYPES, WORD_COUNT } from "@/constants/home-const"
-import { routeConstants } from "@/constants/route-const"
-import { useHome } from "@/hooks/use-home"
+import { PricingCard } from "@/components/home/pricing-card";
+import { ScrollSpySection } from "@/components/navbar/scroll-spy-section";
+import {
+   Form,
+   FormControl,
+   FormField,
+   FormItem,
+   FormLabel,
+   FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import {
+   Select,
+   SelectContent,
+   SelectItem,
+   SelectTrigger,
+   SelectValue,
+} from "@/components/ui/select";
+import Typography from "@/components/ui/typography";
+import { CONTENT_TYPES, WORD_COUNT } from "@/constants/home-const";
+import { routeConstants } from "@/constants/route-const";
+import { useHome } from "@/hooks/use-home";
 import { capitalizeFirstLetters } from "@/helper/capitalize-first-letter";
-import { getContentTypeRangeLabel, renderWordCount } from "@/helper/pricing"
-import { cn } from "@/lib/utils"
+import { getContentTypeRangeLabel, renderWordCount } from "@/helper/pricing";
+import { cn } from "@/lib/utils";
 
 export const Pricing = () => {
    const { form, subscriptionPlans, onSubmit } = useHome();
 
    return (
-      <ScrollSpySection route={routeConstants.pricing} className="py-28 bg-[#f9f9f9]">
+      <ScrollSpySection
+         route={routeConstants.pricing}
+         className="py-28 bg-[#f9f9f9]"
+      >
          <div className="container">
             <div className="max-w-[750px] mx-auto text-center">
-               <Typography variant="h1">
-                  Pricing plans
-               </Typography>
+               <Typography variant="h1">Pricing plans</Typography>
 
                <Typography variant="p" className="text-[hsl(215,15%,38%)]">
-                  Get content written on-demand or get it consistently delivered with our subscription plans and added benefits.
+                  Get content written on-demand or get it consistently delivered
+                  with our subscription plans and added benefits.
                </Typography>
             </div>
          </div>
@@ -36,9 +51,7 @@ export const Pricing = () => {
                      name="contentType"
                      render={({ field }) => (
                         <FormItem className="grid items-center *:text-center">
-                           <FormLabel>
-                              Content Type
-                           </FormLabel>
+                           <FormLabel>Content Type</FormLabel>
 
                            <FormControl>
                               <Select
@@ -51,7 +64,10 @@ export const Pricing = () => {
 
                                  <SelectContent className="bg-[hsla(0,0%,92%)]">
                                     {CONTENT_TYPES.map((data, index) => (
-                                       <SelectItem key={data + index} value={data}>
+                                       <SelectItem
+                                          key={data + index}
+                                          value={data}
+                                       >
                                           {capitalizeFirstLetters(data)}
                                        </SelectItem>
                                     ))}
@@ -68,16 +84,23 @@ export const Pricing = () => {
                      control={form.control}
                      name="wordCount"
                      render={({ field }) => (
-                        <FormItem className={cn("grid items-center *:text-center", {
-                           "max-w-[130px]": form.watch("contentType") === "website content"
-                        })}>
+                        <FormItem
+                           className={cn("grid items-center *:text-center", {
+                              "max-w-[130px]":
+                                 form.watch("contentType") ===
+                                 "website content",
+                           })}
+                        >
                            <FormLabel>
-                              {getContentTypeRangeLabel(form.watch("contentType"))}
+                              {getContentTypeRangeLabel(
+                                 form.watch("contentType")
+                              )}
                            </FormLabel>
 
                            <FormControl>
                               {/* NOTE: If the "content type" is website content, we show an input, to allow user select number else a select */}
-                              {form.watch("contentType") === "website content" ? (
+                              {form.watch("contentType") ===
+                              "website content" ? (
                                  <Input
                                     type="number"
                                     placeholder="Enter number of page(s)"
@@ -95,16 +118,19 @@ export const Pricing = () => {
                                     </SelectTrigger>
 
                                     <SelectContent className="max-h-64 bg-[hsla(0,0%,92%)]">
-
-                                       {renderWordCount(form.watch("contentType")).map((data, index) => (
-                                          <SelectItem key={data + index} value={data}>
+                                       {renderWordCount(
+                                          form.watch("contentType")
+                                       ).map((data, index) => (
+                                          <SelectItem
+                                             key={data + index}
+                                             value={data}
+                                          >
                                              {capitalizeFirstLetters(data)}
                                           </SelectItem>
                                        ))}
                                     </SelectContent>
                                  </Select>
                               )}
-
                            </FormControl>
                         </FormItem>
                      )}
@@ -116,8 +142,8 @@ export const Pricing = () => {
                      <PricingCard
                         key={index}
                         onClick={() => {
-                           form.setValue('price', data.amount);
-                           form.setValue('planName', data.planName);
+                           form.setValue("price", data.amount);
+                           form.setValue("planName", data.planName);
                            form.handleSubmit(onSubmit)();
                         }}
                         {...data}
@@ -126,10 +152,13 @@ export const Pricing = () => {
                </div>
             </form>
 
-            <Typography variant="p" className="text-xs font-normal text-center text-muted-foreground">
+            <Typography
+               variant="p"
+               className="text-xs font-normal text-center text-muted-foreground"
+            >
                🔒 Secure Payment by Payment Gateway
             </Typography>
          </Form>
       </ScrollSpySection>
-   )
-}
+   );
+};

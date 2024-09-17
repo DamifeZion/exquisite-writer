@@ -1,11 +1,13 @@
 import { ScrollSpySection } from "@/components/navbar/scroll-spy-section";
 import Typography from "@/components/ui/typography";
 import { routeConstants } from "@/constants/route-const";
-import Typewriter from 'typewriter-effect';
+import Typewriter from "typewriter-effect";
 
 export const HeroSection = () => [
-
-   <ScrollSpySection route={routeConstants.home} className="relative pt-20 pb-10 lg:pt-28">
+   <ScrollSpySection
+      route={routeConstants.home}
+      className="relative pt-20 pb-10 lg:pt-28"
+   >
       <img
          loading="lazy"
          src="/hero-bg.svg"
@@ -19,20 +21,27 @@ export const HeroSection = () => [
                   <div className="!min-h-10">
                      <Typewriter
                         options={{
-                           strings:
-                              ["<h6 class='inline-block text-primary font-medium text-xl lg:text-3xl'>Write. <span class='text-[#C110FF]'>Connect.</span> <span class='text-[#00CC52]'>Grow.</span></h6>"],
+                           strings: [
+                              "<h6 class='inline-block text-primary font-medium text-xl lg:text-3xl'>Write. <span class='text-[#C110FF]'>Connect.</span> <span class='text-[#00CC52]'>Grow.</span></h6>",
+                           ],
                            autoStart: true,
                            loop: true,
                         }}
                      />
                   </div>
 
-                  <Typography variant="h1" className="text-4xl leading-[1.18] min-[400px]:text-[46px] min-[480px]:text-[50px] min-[480px]:leading-[1.15] md:text-5xl md:leading-tight lg:text-[65px] lg:leading-[76px]">
+                  <Typography
+                     variant="h1"
+                     className="text-4xl leading-[1.18] min-[400px]:text-[46px] min-[480px]:text-[50px] min-[480px]:leading-[1.15] md:text-5xl md:leading-tight lg:text-[65px] lg:leading-[76px]"
+                  >
                      Transform Your Ideas into Engaging Content
                   </Typography>
 
                   <Typography className="mt-4 text-md lg:mt-9">
-                     Exceptional Writing Services for Every Need, whether you need a single blog post or a comprehensive content strategy, our team of expert writers is here to bring your ideas to life.
+                     Exceptional Writing Services for Every Need, whether you
+                     need a single blog post or a comprehensive content
+                     strategy, our team of expert writers is here to bring your
+                     ideas to life.
                   </Typography>
                </div>
 
@@ -50,7 +59,10 @@ export const HeroSection = () => [
                </div>
             </div>
 
-            <img src="/hero.svg" className="w-full h-auto max-md:max-w-sm max-md:mt-10" />
+            <img
+               src="/hero.svg"
+               className="w-full h-auto max-md:max-w-sm max-md:mt-10"
+            />
          </div>
 
          {/* NOTE: Clients Tablet Screens and Above */}
@@ -66,5 +78,5 @@ export const HeroSection = () => [
             <img loading="lazy" src="/client-4.svg" />
          </div>
       </div>
-   </ScrollSpySection >
-]
+   </ScrollSpySection>,
+];

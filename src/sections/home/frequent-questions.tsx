@@ -1,13 +1,18 @@
-import { ScrollSpySection } from "@/components/navbar/scroll-spy-section"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
-import Typography from "@/components/ui/typography"
-import { FAQ_DATA } from "@/constants/home-const"
+import { ScrollSpySection } from "@/components/navbar/scroll-spy-section";
+import {
+   Accordion,
+   AccordionContent,
+   AccordionItem,
+   AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import Typography from "@/components/ui/typography";
+import { FAQ_DATA } from "@/constants/home-const";
 
 export type FrequentlyAskedQuestionsProps = {
    title: string;
    description: string;
-}
+};
 
 export const FrequentlyAskedQuestions = () => {
    return (
@@ -16,7 +21,11 @@ export const FrequentlyAskedQuestions = () => {
             <Typography variant="h1">FAQs</Typography>
 
             <Typography variant="p" className="mt-6">
-               Explore answers to common questions about our services, including content creation, revisions, security measures, team support, pricing plans, and more. Find out everything you need to know to make the most of Exquisite Writers and elevate your writing journey.
+               Explore answers to common questions about our services, including
+               content creation, revisions, security measures, team support,
+               pricing plans, and more. Find out everything you need to know to
+               make the most of Exquisite Writers and elevate your writing
+               journey.
             </Typography>
 
             <Button variant="outline" className="mt-14">
@@ -32,16 +41,19 @@ export const FrequentlyAskedQuestions = () => {
                         <AccordionTrigger>{data.title}</AccordionTrigger>
 
                         <AccordionContent>
-                           <div dangerouslySetInnerHTML={{__html: data.description}} />
+                           <div
+                              dangerouslySetInnerHTML={{
+                                 __html: data.description,
+                              }}
+                           />
                         </AccordionContent>
                      </AccordionItem>
-                  )
+                  );
                })}
             </Accordion>
          </div>
       </ScrollSpySection>
    );
 };
-
 
 //Updatre all social links
