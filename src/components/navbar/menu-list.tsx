@@ -20,17 +20,20 @@ export const MenuList: React.FC<MenuListProps> = ({ onClick }) => {
    return (
       <ul className="flex flex-col items-center lg:flex-row">
          {MENU_LiST.map((data, index) => (
-            <li key={index} className={cn("w-full", {
-               "ml-3": index === MENU_LiST.length - 1
-            })}>
+            <li
+               key={index}
+               className={cn("w-full", {
+                  "ml-3": index === MENU_LiST.length - 1,
+               })}
+            >
                <Link
                   to={data.href}
                   variant={
                      activeMenu === data.href
                         ? "link"
                         : data.button
-                           ? "outline"
-                           : "ghost"
+                          ? "outline"
+                          : "ghost"
                   }
                   onClick={handleClick}
                   className={cn(

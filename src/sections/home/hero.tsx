@@ -6,7 +6,7 @@ import Typewriter from "typewriter-effect";
 export const HeroSection = () => [
    <ScrollSpySection
       route={routeConstants.home}
-      className="relative pt-20 pb-10 lg:pt-28"
+      className="relative"
    >
       <img
          loading="lazy"
@@ -16,7 +16,7 @@ export const HeroSection = () => [
 
       <div className="container">
          <div className="md:grid md:grid-cols-2">
-            <div>
+            <div id="text-writer" className="py-20 lg:py-28">
                <div id="hero-text" className="max-w-[580px]">
                   <div className="!min-h-10">
                      <Typewriter
@@ -45,8 +45,8 @@ export const HeroSection = () => [
                   </Typography>
                </div>
 
-               {/* NOTE: Clients Small Screen Only (Less than Tablet) */}
-               <div className="flex flex-wrap items-center gap-6 mt-24 max-lg:hidden">
+               {/* NOTE: Clients Small Screen Only (Less than Tablet) max-lg:hidden*/}
+               <div className="flex flex-wrap items-center gap-6 mt-24 ">
                   <Typography variant="" className="font-semibold text-md">
                      Trusted by over <br />
                      <span className="text-xl font-medium">10+</span> Clients
@@ -59,15 +59,18 @@ export const HeroSection = () => [
                </div>
             </div>
 
-            <img
-               src="/hero.svg"
-               loading="lazy"
-               className="w-full h-auto max-md:max-w-sm max-md:mt-10"
-            />
+            <div className="relative overflow-visible max-md:-mb-4 max-md:mt-4">
+               <img
+                  src="/hero.svg"
+                  loading="lazy"
+                  className="absolute object-cover object-left size-full"
+               />
+            </div>
          </div>
 
          {/* NOTE: Clients Tablet Screens and Above */}
-         <div className="flex flex-wrap items-center gap-6 mt-12 lg:hidden">
+
+         {/* <div className="flex flex-wrap items-center gap-6 mt-12 lg:hidden">
             <Typography variant="" className="font-semibold text-md">
                Trusted by over <br />
                <span className="text-xl font-medium">10+</span> Clients
@@ -77,7 +80,7 @@ export const HeroSection = () => [
             <img loading="lazy" src="/client-2.svg" />
             <img loading="lazy" src="/client-3.svg" />
             <img loading="lazy" src="/client-4.svg" />
-         </div>
+         </div> */}
       </div>
    </ScrollSpySection>,
 ];

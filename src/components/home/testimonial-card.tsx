@@ -70,18 +70,19 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
                   ))}
 
                   {/* Render half star if necessary */}
-                  {hasHalfStar && <BsStarHalf className="text-[#ffcd59] !size-4 md:!size-5 lg:!size-[22px]" />}
-
-                  {/* Render remaining outline stars */}
-                  {Array.from({ length: totalRating - fullStars - (hasHalfStar ? 1 : 0) }).map(
-                     (_, index) => (
-                        <AiOutlineStar
-                           key={index}
-                           className="text-muted-foreground"
-                        />
-                     )
+                  {hasHalfStar && (
+                     <BsStarHalf className="text-[#ffcd59] !size-4 md:!size-5 lg:!size-[22px]" />
                   )}
 
+                  {/* Render remaining outline stars */}
+                  {Array.from({
+                     length: totalRating - fullStars - (hasHalfStar ? 1 : 0),
+                  }).map((_, index) => (
+                     <AiOutlineStar
+                        key={index}
+                        className="text-muted-foreground"
+                     />
+                  ))}
                </div>
             </div>
 

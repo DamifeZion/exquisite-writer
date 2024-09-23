@@ -8,7 +8,7 @@ import {
    CONTACT_DETAILS,
    CONTACT_SOCIAL_LINK,
 } from "@/constants/contact-const";
-import { HiOutlineLocationMarker } from "react-icons/hi";
+import { capitalizeFirstLetters } from "@/helper/capitalize-first-letter";
 
 export const ContactBody = () => {
    return (
@@ -34,7 +34,7 @@ export const ContactBody = () => {
                            className="text-lg"
                         >
                            <a href={`mailto:${CONTACT_DETAILS.email}`}>
-                              {CONTACT_DETAILS.email}
+                              {capitalizeFirstLetters(CONTACT_DETAILS.email)}
                            </a>
                         </Typography>
                      </div>
@@ -55,7 +55,17 @@ export const ContactBody = () => {
                         </Typography>
                      </div>
 
-                     <div className="grid grid-cols-[auto_1fr] items-center gap-2">
+                     <ul className="pl-[56px] space-y-4">
+                        <Typography variant="p">
+                           Call hours
+                        </Typography>
+
+                        <Typography variant="p">
+                           Mon- Saturday. 9am - 6pm GMT
+                        </Typography>
+                     </ul>
+
+                     {/* <div className="grid grid-cols-[auto_1fr] items-center gap-2">
                         <span className="p-2.5 rounded-full h-fit bg-primary/[0.1] text-primary">
                            <HiOutlineLocationMarker size={24} />
                         </span>
@@ -67,7 +77,7 @@ export const ContactBody = () => {
                         >
                            <a>{CONTACT_DETAILS.address}</a>
                         </Typography>
-                     </div>
+                     </div> */}
                   </div>
 
                   <div
