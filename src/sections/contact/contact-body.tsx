@@ -56,9 +56,7 @@ export const ContactBody = () => {
                      </div>
 
                      <ul className="pl-[56px] space-y-4">
-                        <Typography variant="p">
-                           Call hours
-                        </Typography>
+                        <Typography variant="p">Call hours</Typography>
 
                         <Typography variant="p">
                            Mon- Saturday. 9am - 6pm GMT

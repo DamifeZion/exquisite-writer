@@ -9,7 +9,6 @@ import { FrequentlyAskedQuestionsProps } from "@/sections/home/frequent-question
 import { CommitmentCardProps } from "@/components/home/our-commitment-card";
 import { PricingCardProps } from "@/components/home/pricing-card";
 
-
 export const WHAT_WE_DO: Array<WhatWeDOCardProps> = [
    {
       icon: Edit,

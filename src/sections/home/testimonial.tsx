@@ -12,7 +12,7 @@ import { Link } from "@/components/ui/link";
 import Typography from "@/components/ui/typography";
 import { TESTIMONIALS } from "@/constants/home-const";
 import { routeConstants } from "@/constants/route-const";
-import AutoPlay from "embla-carousel-autoplay";
+import Autoplay from "embla-carousel-autoplay"
 
 export const Testimonial = () => {
    return (
@@ -57,9 +57,11 @@ export const Testimonial = () => {
                      }}
                      orientation="vertical"
                      plugins={[
-                        AutoPlay({
-                           delay: 3500,
-                           playOnInit: true,
+                        Autoplay({
+                           delay: 3000,
+                           stopOnFocusIn: false,
+                           stopOnInteraction: false,
+                           stopOnMouseEnter: false,
                         }),
                      ]}
                   >

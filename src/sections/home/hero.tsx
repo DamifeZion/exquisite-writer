@@ -4,10 +4,7 @@ import { routeConstants } from "@/constants/route-const";
 import Typewriter from "typewriter-effect";
 
 export const HeroSection = () => [
-   <ScrollSpySection
-      route={routeConstants.home}
-      className="relative"
-   >
+   <ScrollSpySection route={routeConstants.home} className="relative">
       <img
          loading="lazy"
          src="/hero-bg.svg"
