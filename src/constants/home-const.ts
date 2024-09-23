@@ -57,14 +57,14 @@ export const THE_TEAM: Array<TeamCardProps> = [
    },
    {
       src: "/team-3.svg",
-      name: "Isaac Opeyemi",
+      name: "Trust Ibitomisi",
       position: "Lead Wordsmith Editor",
       description:
          "I am a passionate writer whose craft goes beyond stringing words together. With accurate words and a conversational style, I create connections, touch emotions, and inspire readers!",
    },
    {
       src: "/team-4.svg",
-      name: "Ola Opeyemi",
+      name: "Khadija Ali",
       position: "Wordsmith",
       description:
          "I enjoy weaving words together and finding inspiration in the little things.",
@@ -91,7 +91,7 @@ export const THE_TEAM: Array<TeamCardProps> = [
    },
    {
       src: "/team-8.svg",
-      name: "Asenge Adeleye",
+      name: "Adeleye Asenge",
       position: "Wordsmith",
       description:
          "I am an outstanding writer who explores the depth of creativity with words.",
