@@ -56,11 +56,11 @@ export const HeroSection = () => [
                </div>
             </div>
 
-            <div className="relative overflow-visible max-md:-mb-4 max-md:mt-4">
+            <div className="max-md:-mb-4 max-md:mt-4">
                <img
-                  src="/hero.svg"
+                  src="/hero.png"
                   loading="lazy"
-                  className="absolute object-cover object-left size-full"
+                  className="object-cover object-left size-full"
                />
             </div>
          </div>
