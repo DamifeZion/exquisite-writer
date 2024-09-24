@@ -12,9 +12,9 @@ export const HeroSection = () => [
       />
 
       <div className="container">
-         <div className="md:grid md:grid-cols-2">
+         <div className="md:grid md:grid-cols-[auto_1fr]">
             <div id="text-writer" className="py-20 lg:py-28">
-               <div id="hero-text" className="max-w-[580px]">
+               <div id="hero-text" className="md:max-w-md lg:max-w-[580px]">
                   <div className="!min-h-10">
                      <Typewriter
                         options={{
@@ -43,7 +43,7 @@ export const HeroSection = () => [
                </div>
 
                {/* NOTE: Clients Small Screen Only (Less than Tablet) max-lg:hidden*/}
-               <div className="flex flex-wrap items-center gap-6 mt-24 ">
+               <div className="flex flex-wrap items-center gap-6 mt-24 md:max-w-md lg:max-w-max">
                   <Typography variant="" className="font-semibold text-md">
                      Trusted by over <br />
                      <span className="text-xl font-medium">10+</span> Clients
@@ -56,11 +56,11 @@ export const HeroSection = () => [
                </div>
             </div>
 
-            <div className="max-md:-mb-4 max-md:mt-4">
+            <div className="relative w-full max-md:-mb-4 max-md:mt-4">
                <img
                   src="/hero.png"
                   loading="lazy"
-                  className="object-cover object-left size-full"
+                  className="object-cover object-left size-full "
                />
             </div>
          </div>
