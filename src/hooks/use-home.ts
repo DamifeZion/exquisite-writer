@@ -6,6 +6,7 @@ import { PricingCardProps } from "@/components/home/pricing-card";
 import {
    CONTENT_TYPES,
    ContentType,
+   PAYMENT_FORM_PARAMS,
    PLANS,
    WORD_COUNT,
 } from "@/constants/home-const";
@@ -14,9 +15,10 @@ import {
    getCategoryBasePrice,
    renderWordCount,
 } from "@/helper/pricing";
+import { useSearchParams } from "react-router-dom";
 
-export const useHome = () => {
-   const formSchema = z.object({
+export const homePaymentFormSchema  = z
+   .object({
       contentType: z.enum(CONTENT_TYPES as [ContentType, ...ContentType[]], {
          message: "Please select a content type",
       }),
@@ -27,10 +29,51 @@ export const useHome = () => {
          message: "Price must be at least 1 character long",
       }),
       planName: z.string().optional(),
+
+      // Fields that are required based on the search param
+      name: z.string().optional(),
+      email: z
+         .string()
+         .email({ message: "Please enter a valid email address" })
+         .optional(),
+      phone: z.string().optional(),
+   })
+   
+
+export const useHome = () => {
+   const [searchParams] = useSearchParams();
+
+   homePaymentFormSchema.superRefine((data, ctx) => {
+      // Check if the PAYMENT_FORM_PARAMS is in the search params
+      if (searchParams.get(PAYMENT_FORM_PARAMS) === "true") {
+         if (!data.name) {
+            ctx.addIssue({
+               code: "custom",
+               message: "Name is required",
+               path: ["name"],
+            });
+         }
+
+         if (!data.email) {
+            ctx.addIssue({
+               code: "custom",
+               message: "Email is required",
+               path: ["email"],
+            });
+         }
+
+         if (!data.phone) {
+            ctx.addIssue({
+               code: "custom",
+               message: "Phone number is required",
+               path: ["phone"],
+            });
+         }
+      }
    });
 
-   const form = useForm<z.infer<typeof formSchema>>({
-      resolver: zodResolver(formSchema),
+   const form = useForm<z.infer<typeof homePaymentFormSchema >>({
+      resolver: zodResolver(homePaymentFormSchema ),
       defaultValues: {
          contentType: "blog",
          wordCount: WORD_COUNT[0],
@@ -86,7 +129,7 @@ export const useHome = () => {
    }, [wordCount, contentType]);
 
    // NOTE: Handle submitting these values using
-   const onSubmit = (values: z.infer<typeof formSchema>) => {
+   const onSubmit = (values: z.infer<typeof homePaymentFormSchema >) => {
       console.log(values);
    };
 

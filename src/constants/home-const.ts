@@ -97,6 +97,8 @@ export const THE_TEAM: Array<TeamCardProps> = [
    },
 ];
 
+export const PAYMENT_FORM_PARAMS: string = "pf"
+
 export const TESTIMONIALS: Array<TestimonialCardProps> = [
    {
       ratingNo: "5.0",

@@ -23,6 +23,7 @@ import { useHome } from "@/hooks/use-home";
 import { capitalizeFirstLetters } from "@/helper/capitalize-first-letter";
 import { getContentTypeRangeLabel, renderWordCount } from "@/helper/pricing";
 import { cn } from "@/lib/utils";
+import { PaymentForm } from "@/components/home/payment-form";
 
 export const Pricing = () => {
    const { form, subscriptionPlans, onSubmit } = useHome();
@@ -150,6 +151,8 @@ export const Pricing = () => {
                      />
                   ))}
                </div>
+
+               <PaymentForm form={form} />
             </form>
 
             <Typography

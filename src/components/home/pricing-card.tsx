@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "../ui/button";
 import {
    Card,
@@ -7,6 +8,8 @@ import {
    CardTitle,
 } from "../ui/card";
 import Typography from "../ui/typography";
+import { useSearchParams } from "react-router-dom";
+import { PAYMENT_FORM_PARAMS } from "@/constants/home-const";
 
 export type PricingCardProps = {
    planName: "Starter" | "Professional" | "Elite";
@@ -21,46 +24,59 @@ export const PricingCard: React.FC<PricingCardProps> = ({
    features,
    onClick,
 }) => {
+   const [, setSearchParams] = useSearchParams();
+
+   const handleClick = () => {
+      if (onClick) onClick;
+
+      // To open the payment form.
+      setSearchParams({
+         [PAYMENT_FORM_PARAMS]: "true"
+      })
+   }
+
    return (
-      <Card className="border-none rounded-3xl">
-         <CardHeader className="pb-2">
-            <Typography variant="h4" className="text-[15px] font-semibold">
-               {planName}
-            </Typography>
+      <>
+         <Card className="border-none rounded-3xl">
+            <CardHeader className="pb-2">
+               <Typography variant="h4" className="text-[15px] font-semibold">
+                  {planName}
+               </Typography>
 
-            <CardTitle className="!mt-4 text-3xl lg:text-4xl">
-               $ {amount}
-            </CardTitle>
-         </CardHeader>
+               <CardTitle className="!mt-4 text-3xl lg:text-4xl">
+                  $ {amount}
+               </CardTitle>
+            </CardHeader>
 
-         <CardContent>
-            {features.map((data, index) => (
-               <li
-                  key={data + index}
-                  className="grid grid-cols-[auto_1fr] gap-0.5"
-               >
-                  <span className="mt-[9px] sm:mt-[12px]">✅</span>
-
-                  <Typography
-                     variant="p"
-                     affects="removePMargin"
-                     className="!mt-3 text-muted-foreground !text-sm first:mt-0"
+            <CardContent>
+               {features.map((data, index) => (
+                  <li
+                     key={data + index}
+                     className="grid grid-cols-[auto_1fr] gap-0.5"
                   >
-                     {data}
-                  </Typography>
-               </li>
-            ))}
-         </CardContent>
+                     <span className="mt-[9px] sm:mt-[12px]">✅</span>
 
-         <CardFooter>
-            <Button
-               type="button"
-               onClick={onClick}
-               className="text-sm sm:py-6 bg-[hsl(234,100%,60%)] text-white font-medium hover:bg-[hsl(234,100%,60%)]/90 text-md w-full lg:text-md"
-            >
-               Get Started
-            </Button>
-         </CardFooter>
-      </Card>
+                     <Typography
+                        variant="p"
+                        affects="removePMargin"
+                        className="!mt-3 text-muted-foreground !text-sm first:mt-0"
+                     >
+                        {data}
+                     </Typography>
+                  </li>
+               ))}
+            </CardContent>
+
+            <CardFooter>
+               <Button
+                  type="button"
+                  onClick={handleClick}
+                  className="text-sm sm:py-6 bg-[hsl(234,100%,60%)] text-white font-medium hover:bg-[hsl(234,100%,60%)]/90 text-md w-full lg:text-md"
+               >
+                  Get Started
+               </Button>
+            </CardFooter>
+         </Card>
+      </>
    );
 };
