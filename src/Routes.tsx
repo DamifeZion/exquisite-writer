@@ -10,6 +10,7 @@ const Blog = React.lazy(() => import("@/pages/Blog"));
 const BlogDetails = React.lazy(() => import("@/pages/BlogDetails"));
 const Contact = React.lazy(() => import("@/pages/Contact"));
 const PrivacyPolicy = React.lazy(() => import("@/pages/PrivacyPolicy"));
+const Career = React.lazy(() => import("@/pages/Career"));
 const NotFound = React.lazy(() => import("@/pages/NotFound"));
 
 const Routes = () => {
@@ -27,6 +28,10 @@ const Routes = () => {
             <Route
                path={routeConstants.privacyPolicy}
                element={<PrivacyPolicy />}
+            />
+            <Route
+               path={routeConstants.career}
+               element={<Career />}
             />
             <Route path="*" element={<NotFound />} />
          </Router>

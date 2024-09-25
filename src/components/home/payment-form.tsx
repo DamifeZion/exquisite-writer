@@ -54,7 +54,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ subscriptionForm, open
          name: form.watch('name') || "",
       },
       customizations: {
-         title: `Payment for ${subscriptionForm.watch('planName')} Subscription`,
+         title: `Payment for ${subscriptionForm.watch('planName')} Plan - ${capitalizeFirstLetters(subscriptionForm.watch('contentType'))} (${subscriptionForm.watch('wordCount')})`,
          description: `Secure payment for the ${subscriptionForm.watch('planName') || 'selected'}`,
          logo: 'https://theexquisitewriters.com/logo.svg',
       },
