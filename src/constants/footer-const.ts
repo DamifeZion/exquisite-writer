@@ -32,4 +32,8 @@ export const OTHER_LINKS = [
       label: "Contact Us",
       href: routeConstants.contact,
    },
+   {
+      label: "Career",
+      href: routeConstants.career,
+   },
 ];

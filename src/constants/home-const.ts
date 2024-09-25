@@ -76,7 +76,7 @@ export const THE_TEAM: Array<TeamCardProps> = [
    },
    {
       src: "/team-6.svg",
-      name: "simisola babatunde",
+      name: "Simisola Babatunde",
       position: "Wordsmith",
       description:
          "A wordsmith with a keen eye for detail and a knack for crafting compelling narratives, Simisola creates content that informs, inspires, and engages audience. ",
@@ -310,7 +310,7 @@ export const DESCRIPTION_COUNT: Array<string> = [
 ];
 
 // NOTE: The amount below is the base amount, but is subject to change based on max words selected in "use-home" hook.
-export const PLANS: Array<PricingCardProps> = [
+export const PLANS: Array<Omit<PricingCardProps, 'handleDialog'>> = [
    {
       planName: "Starter",
       amount: 38,

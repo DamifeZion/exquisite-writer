@@ -6,7 +6,6 @@ import { PricingCardProps } from "@/components/home/pricing-card";
 import {
    CONTENT_TYPES,
    ContentType,
-   PAYMENT_FORM_PARAMS,
    PLANS,
    WORD_COUNT,
 } from "@/constants/home-const";
@@ -15,65 +14,25 @@ import {
    getCategoryBasePrice,
    renderWordCount,
 } from "@/helper/pricing";
-import { useSearchParams } from "react-router-dom";
 
-export const homePaymentFormSchema  = z
-   .object({
-      contentType: z.enum(CONTENT_TYPES as [ContentType, ...ContentType[]], {
-         message: "Please select a content type",
-      }),
-      wordCount: z.string().min(4, {
-         message: "Number of words must be at least 4 characters long",
-      }),
-      price: z.number().min(1, {
-         message: "Price must be at least 1 character long",
-      }),
-      planName: z.string().optional(),
-
-      // Fields that are required based on the search param
-      name: z.string().optional(),
-      email: z
-         .string()
-         .email({ message: "Please enter a valid email address" })
-         .optional(),
-      phone: z.string().optional(),
-   })
-   
+export const homePaymentFormSchema = z.object({
+   contentType: z.enum(CONTENT_TYPES as [ContentType, ...ContentType[]], {
+      message: "Please select a content type",
+   }),
+   wordCount: z.string().min(4, {
+      message: "Number of words must be at least 4 characters long",
+   }),
+   price: z.number().min(1, {
+      message: "Price must be at least 1 character long",
+   }),
+   planName: z.string().optional(),
+});
 
 export const useHome = () => {
-   const [searchParams] = useSearchParams();
+   const [openPaymentDialog, setOpenPaymentDialog] = useState(false);
 
-   homePaymentFormSchema.superRefine((data, ctx) => {
-      // Check if the PAYMENT_FORM_PARAMS is in the search params
-      if (searchParams.get(PAYMENT_FORM_PARAMS) === "true") {
-         if (!data.name) {
-            ctx.addIssue({
-               code: "custom",
-               message: "Name is required",
-               path: ["name"],
-            });
-         }
-
-         if (!data.email) {
-            ctx.addIssue({
-               code: "custom",
-               message: "Email is required",
-               path: ["email"],
-            });
-         }
-
-         if (!data.phone) {
-            ctx.addIssue({
-               code: "custom",
-               message: "Phone number is required",
-               path: ["phone"],
-            });
-         }
-      }
-   });
-
-   const form = useForm<z.infer<typeof homePaymentFormSchema >>({
-      resolver: zodResolver(homePaymentFormSchema ),
+   const form = useForm<z.infer<typeof homePaymentFormSchema>>({
+      resolver: zodResolver(homePaymentFormSchema),
       defaultValues: {
          contentType: "blog",
          wordCount: WORD_COUNT[0],
@@ -83,7 +42,7 @@ export const useHome = () => {
    });
 
    const [subscriptionPlans, setSubscriptionPlans] =
-      useState<Array<PricingCardProps>>(PLANS);
+      useState<Array<Omit<PricingCardProps, 'handleDialog'>>>(PLANS);
 
    const wordCount = form.watch("wordCount");
    const contentType = form.watch("contentType");
@@ -129,13 +88,17 @@ export const useHome = () => {
    }, [wordCount, contentType]);
 
    // NOTE: Handle submitting these values using
-   const onSubmit = (values: z.infer<typeof homePaymentFormSchema >) => {
-      console.log(values);
+   const onSubmit = (values: z.infer<typeof homePaymentFormSchema>) => {
+      if (process.env.NODE_ENV === "development") {
+         console.log(values);
+      }
    };
 
    return {
       form,
       subscriptionPlans,
       onSubmit,
+      openPaymentDialog,
+      setOpenPaymentDialog,
    };
 };

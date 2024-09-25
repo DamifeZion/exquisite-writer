@@ -4,7 +4,7 @@ import { FiFacebook } from "react-icons/fi";
 
 export const CONTACT_DETAILS = {
    email: "hello@theexquisitewriters.com",
-   phone: "+2348076568689",
+   phone: "+2348027540009",
    address: "Block 47, flat 5, 600px, Nigeria Guiness",
 };
 

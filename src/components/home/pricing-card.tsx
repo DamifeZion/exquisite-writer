@@ -8,13 +8,12 @@ import {
    CardTitle,
 } from "../ui/card";
 import Typography from "../ui/typography";
-import { useSearchParams } from "react-router-dom";
-import { PAYMENT_FORM_PARAMS } from "@/constants/home-const";
 
 export type PricingCardProps = {
    planName: "Starter" | "Professional" | "Elite";
    amount: number;
    features: Array<string>;
+   handleDialog: (values: boolean) => void;
    onClick?: () => void;
 };
 
@@ -23,16 +22,12 @@ export const PricingCard: React.FC<PricingCardProps> = ({
    amount,
    features,
    onClick,
+   handleDialog
 }) => {
-   const [, setSearchParams] = useSearchParams();
-
    const handleClick = () => {
-      if (onClick) onClick;
-
+      if (onClick) onClick();
       // To open the payment form.
-      setSearchParams({
-         [PAYMENT_FORM_PARAMS]: "true"
-      })
+      handleDialog(true)
    }
 
    return (

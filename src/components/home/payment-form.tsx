@@ -1,40 +1,51 @@
-import { useSearchParams } from "react-router-dom"
 import { DialogContent, DialogHeader, Dialog, DialogTitle, DialogDescription, DialogFooter } from "../ui/dialog"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { ScrollArea } from "../ui/scroll-area"
-import { useEffect, useState } from "react"
-import { PAYMENT_FORM_PARAMS } from "@/constants/home-const"
-import { UseFormReturn } from "react-hook-form"
+import { useForm, UseFormReturn } from "react-hook-form"
 import { z } from "zod"
 import { homePaymentFormSchema } from "@/hooks/use-home"
 import { Input } from "../ui/input"
 import { closePaymentModal, useFlutterwave } from 'flutterwave-react-v3';
 import { Button } from "../ui/button"
+import { capitalizeFirstLetters } from "@/helper/capitalize-first-letter"
+import { zodResolver } from "@hookform/resolvers/zod"
 
 type PaymentFormProps = {
-   form: UseFormReturn<z.infer<typeof homePaymentFormSchema>>;
+   subscriptionForm: UseFormReturn<z.infer<typeof homePaymentFormSchema>>;
+   openDialog: boolean;
+   handleDialog: (value: boolean) => void;
 }
 
-export const PaymentForm: React.FC<PaymentFormProps> = ({ form }) => {
-   const [searchParams, setSearchParams] = useSearchParams();
-   const [openDialog, setOpenDialog] = useState(false);
-
-   useEffect(() => {
-      if (searchParams.get(PAYMENT_FORM_PARAMS) === "true") {
-         setOpenDialog(true)
-      }
-   }, [searchParams]);
-
+export const PaymentForm: React.FC<PaymentFormProps> = ({ subscriptionForm, openDialog, handleDialog }) => {
    const handleCloseDialog = () => {
-      setOpenDialog(false);
-      searchParams.delete(PAYMENT_FORM_PARAMS);
-      setSearchParams(searchParams);
+      handleDialog(false);
    };
 
+   const formSchema = z.object({
+      name: z.string().min(5, {
+         message: "Please enter your full name"
+      }),
+      email: z
+         .string()
+         .email({ message: "Please enter a valid email address" }),
+      phone: z.string().min(9, {
+         message: "Please enter a valid phone number"
+      }),
+   });
+
+   const form = useForm<z.infer<typeof formSchema>>({
+      resolver: zodResolver(formSchema),
+      defaultValues: {
+         name: "",
+         email: "",
+         phone: ""
+      },
+   });
+
    const config = {
-      public_key: 'FLWPUBK_TEST-8cb0b4a0bb9689abddc2d2c6ef16f10c-X',
+      public_key: 'FLWPUBK-be3a1407d7ff36223686ddc7c8709af3-X',
       tx_ref: `TX_${Date.now().toString()}`,
-      amount: form.watch('price'),
+      amount: subscriptionForm.watch('price'),
       currency: 'USD',
       payment_options: 'card,mobilemoney,ussd',
       customer: {
@@ -43,36 +54,53 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ form }) => {
          name: form.watch('name') || "",
       },
       customizations: {
-         title: `Payment for ${form.watch('planName')} Subscription`,
-         description: `Secure payment for the ${form.watch('planName') || 'selected'}`,
+         title: `Payment for ${subscriptionForm.watch('planName')} Subscription`,
+         description: `Secure payment for the ${subscriptionForm.watch('planName') || 'selected'}`,
          logo: 'https://theexquisitewriters.com/logo.svg',
       },
    };
 
    const handleFlutterPayment = useFlutterwave(config);
 
+   const onSubmit = (values: z.infer<typeof formSchema>) => {
+      if (process.env.NODE_ENV === 'development') {
+         console.log(values);
+      }
+      
+      handleFlutterPayment({
+         callback: (response) => {
+            console.log(response);
+            closePaymentModal();
+         },
+         onClose: () => { },
+      });
+   };
+
    return (
       <Dialog open={openDialog} onOpenChange={handleCloseDialog}>
          <DialogContent className="px-4 grid-rows-[auto_1fr]">
             <DialogHeader className="px-2">
-               <DialogTitle>
-                  Payment Information
-               </DialogTitle>
+               <DialogTitle>Payment Information</DialogTitle>
                <DialogDescription>
-                  Please enter your details below to proceed with the payment.
+                  Please enter your details below to proceed with the payment for:
+                  <ul className="mt-4 text-foreground [&_li]:ml-4 [&_li]:list-disc [&_span]:font-normal">
+                     <li>Plan: <span>{subscriptionForm.watch('planName')}</span></li>
+                     <li>Content type: <span>{capitalizeFirstLetters(subscriptionForm.watch('contentType'))}</span> </li>
+                     <li>Word Count: <span>{subscriptionForm.watch('wordCount')}</span></li>
+                  </ul>
                </DialogDescription>
             </DialogHeader>
 
             <ScrollArea>
                <Form {...form}>
-                  <form className="px-2 py-2 space-y-6">
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="px-2 py-2 space-y-6">
                      <FormField
                         name="name"
                         control={form.control}
                         render={({ field }) => (
                            <FormItem>
                               <FormLabel>
-                                 Full Name
+                                 Full Name <span className="text-destructive">*</span>
                               </FormLabel>
 
                               <FormControl>
@@ -90,7 +118,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ form }) => {
                         render={({ field }) => (
                            <FormItem>
                               <FormLabel>
-                                 Email
+                                 Email <span className="text-destructive">*</span>
                               </FormLabel>
 
                               <FormControl>
@@ -108,35 +136,27 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ form }) => {
                         render={({ field }) => (
                            <FormItem>
                               <FormLabel>
-                                 Phone Number
+                                 Phone Number <span className="text-destructive">*</span>
                               </FormLabel>
 
                               <FormControl>
-                                 <Input placeholder="e.g +2348076568689" {...field} />
+                                 <Input isNumeric placeholder="e.g +2348076568689" {...field} />
                               </FormControl>
 
                               <FormMessage />
                            </FormItem>
                         )}
                      />
+
+                     <DialogFooter>
+                        <Button type="submit">
+                           Proceed to Pay With Flutterwave
+                        </Button>
+                     </DialogFooter>
                   </form>
                </Form>
             </ScrollArea>
-
-            <DialogFooter>
-               <Button onClick={() => {
-                  handleFlutterPayment({
-                     callback: (response) => {
-                        console.log(response);
-                        closePaymentModal()
-                     },
-                     onClose: () => {},
-                  });
-               }}>
-                  Proceed to Pay With Flutterwave
-               </Button>
-            </DialogFooter>
          </DialogContent>
       </Dialog>
-   )
-}
+   );
+};

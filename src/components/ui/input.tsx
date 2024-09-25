@@ -1,12 +1,33 @@
 import * as React from "react";
-
 import { cn } from "@/lib/utils";
 
-export interface InputProps
-   extends React.InputHTMLAttributes<HTMLInputElement> {}
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+   isNumeric?: boolean;
+}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-   ({ className, type, ...props }, ref) => {
+   ({ className, type, isNumeric, ...props }, ref) => {
+      // Function to allow only numeric input and + sign
+      const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+         if (isNumeric) {
+            const allowedKeys = [
+               "Backspace",
+               "Tab",
+               "Enter",
+               "ArrowLeft",
+               "ArrowRight",
+               "Delete",
+            ];
+
+            // Allow number keys and the '+' sign
+            const isNumberKey = /^[0-9+]$/.test(event.key);
+
+            if (!isNumberKey && !allowedKeys.includes(event.key)) {
+               event.preventDefault(); 
+            }
+         }
+      };
+
       return (
          <input
             type={type}
@@ -15,11 +36,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                className
             )}
             ref={ref}
+            onKeyDown={handleKeyDown}
             {...props}
          />
       );
    }
 );
+
 Input.displayName = "Input";
 
 export { Input };

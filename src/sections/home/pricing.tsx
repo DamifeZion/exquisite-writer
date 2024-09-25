@@ -26,7 +26,7 @@ import { cn } from "@/lib/utils";
 import { PaymentForm } from "@/components/home/payment-form";
 
 export const Pricing = () => {
-   const { form, subscriptionPlans, onSubmit } = useHome();
+   const { form, subscriptionPlans, onSubmit, openPaymentDialog, setOpenPaymentDialog } = useHome();
 
    return (
       <ScrollSpySection
@@ -147,12 +147,19 @@ export const Pricing = () => {
                            form.setValue("planName", data.planName);
                            form.handleSubmit(onSubmit)();
                         }}
-                        {...data}
+                        handleDialog={setOpenPaymentDialog}
+                        planName={data.planName}
+                        amount={data.amount}
+                        features={data.features}
                      />
                   ))}
                </div>
 
-               <PaymentForm form={form} />
+               <PaymentForm 
+                  subscriptionForm={form} 
+                  handleDialog={setOpenPaymentDialog}
+                  openDialog={openPaymentDialog}
+               />
             </form>
 
             <Typography

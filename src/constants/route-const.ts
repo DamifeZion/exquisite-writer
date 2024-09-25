@@ -10,4 +10,5 @@ export const routeConstants = {
    blogDetails: "/blogs/:id",
    contact: "/contact",
    privacyPolicy: "/privacy-policy",
+   career: "/career",
 };
