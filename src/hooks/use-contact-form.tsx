@@ -31,9 +31,9 @@ export const useContactForm = () => {
 
    const onSubmit = async (values: z.infer<typeof formSchema>) => {
       // EmailJS Configuration
-      const service_id = "service_f6yrihi";
-      const template_id = "template_m1muv8w";
-      const PUBLIC_KEY = "DiOWWG7ZN150daoPL";
+      const service_id = "theexquisitewriters_smtp";
+      const template_id = "template_mgiydrk";
+      const PUBLIC_KEY = "ZLwRc-z1MCm48FayN";
 
       const template_params = {
          to_name: "Exquisite Writing Service",
