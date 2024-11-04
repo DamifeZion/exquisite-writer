@@ -2,16 +2,15 @@
 
 1) Copy the .htaccess file in the cpanel setup and then push replace the one in the cpanel public_html.
 
-2) If wordpress then create a new folder 'blog' or 'wp'.
+2) If wordpress then simply backup the "wp_content" by compressing to zip and then deleting the uzipped folder, so the wordpress template dont load.
 
-3) Move all wordpress files in the cpanel to the file created in step (2).
+3) Upload the zipped build.
 
-4) Upload the zipped build.
+4) Extract the zipped file to the public_html
 
-5) Extract the zipped file to the public_html
+// Optional, the below is only needed if yu moved the entire wordpress files and folder into a single folder
+5) Go to cpanel PhpMyAdmin, and then find the database for the wordpress.
 
-6) Go to cpanel PhpMyAdmin, and then find the database for the wordpress.
+6) Search the database for wp_options or whatever its called, it will have '_options' at end.
 
-7) Search the database for wp_options or whatever its called, it will have '_options' at end.
-
-8) Find where the coloumn option_name = 'siteurl' and also 'home', then replace it to be the 'base url/blog' or 'base url/the folder name in (2)'. 
+7) Find where the coloumn option_name = 'siteurl' and also 'home', then replace it to be the 'base url/blog' or 'base url/the folder name in (2)'. 

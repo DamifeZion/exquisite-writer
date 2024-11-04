@@ -10,6 +10,99 @@ Header set Access-Control-Allow-Methods "GET, POST, OPTIONS, DELETE, PUT"
 Header set Access-Control-Allow-Headers "Content-Type, Authorization"
 
 # Allow access to WordPress admin, login, and API
+RewriteCond %{REQUEST_URI} ^/wp-admin [NC,OR]
+RewriteCond %{REQUEST_URI} ^/wp-login.php [NC,OR]
+RewriteCond %{REQUEST_URI} ^/wp-json/ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/wp-content/ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/wp-includes/ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/wp-cron.php [NC,OR]
+RewriteCond %{REQUEST_URI} ^/index.php [NC,OR]
+RewriteCond %{REQUEST_URI} ^/.*\.php$ [NC]
+RewriteRule ^ - [L]
+
+# Allow access to wp-json
+RewriteCond %{REQUEST_URI} ^/wp-json/ [NC]
+RewriteRule ^ - [L]
+
+# Ensure the React app handles all other routes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [QSA,L]
+</IfModule>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# TO handle the redirect re-route
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# CORS. 
+#This CORS will allow only React.Vite from port 5173, but nothing else. If react or next, enter your development port instead. This is best to access the wordpress blog api
+Header set Access-Control-Allow-Origin "*"
+# Comment the above when done with development. 
+Header set Access-Control-Allow-Methods "GET, POST, OPTIONS, DELETE, PUT"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+
+# Allow access to WordPress admin, login, and API
 RewriteCond %{REQUEST_URI} ^/blog/wp-admin [NC,OR]
 RewriteCond %{REQUEST_URI} ^/blog/wp-login.php [NC,OR]
 RewriteCond %{REQUEST_URI} ^/blog/wp-json/ [NC,OR]
@@ -29,3 +122,18 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ /index.html [QSA,L]
 </IfModule>
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress

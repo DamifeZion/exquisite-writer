@@ -73,6 +73,11 @@ export const useWordpress = () => {
          try {
             const res = await wordpressAPI.get("/categories");
 
+            if (typeof res.data === "string" || !res.data.length) {
+               console.log("No data");
+               return console.log(res.data);
+            }
+
             // Replace parent ID with parent name
             const categoriesWithParentName = res.data.map(
                (item: WordpressCategoryType) => {
